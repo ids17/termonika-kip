@@ -1,0 +1,334 @@
+$accent_color: #00a9eb
+
+body
+	font-family: 'SegoeUILight','HattoriHanzoLight',arial !important
+
+.preloader
+	position: fixed
+	display: none
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	background-color: #fff
+	z-index: 999
+	background-image: url(../img/preloader.gif)
+	background-repeat: no-repeat
+	background-position: center
+
+
+
+#search_result
+	position: fixed
+	top: 110px
+	width: 100%
+	justify-content: space-around
+	align-items: stretch
+	padding: 0
+	margin: 0
+	display: none
+	z-index: 998
+	//margin-top: 110px
+	background-color: rgba(231,231,231,1)
+	//-moz-transition: all 0.2s 0.05s ease-in
+	//-o-transition: all 0.2s 0.05s ease-in
+	//-webkit-transition: all 0.2s 0.05s ease-in
+	> div
+		height: 100%
+		background-color: #fff
+		//margin: 0 15%
+		padding: 20px 20px
+		//border: 2px solid rgba(0, 0, 0, 0.09)
+		//box-shadow: inset 0 0 11px 1px #e7e7e7, 0 0 11px 1px #e7e7e7
+		overflow-y: scroll
+		> img
+			width: 60px
+		> a
+			border-bottom: 1px #000 solid
+			cursor: pointer
+
+.close
+	//flex-grow: 1
+	width: 150px
+	display: flex
+	justify-content: center
+	align-items: center
+	opacity: 1 !important
+	background-color: transparent !important
+	text-shadow: 0 1px 0 rgb(231,231,231) !important
+	i
+		font-size: 40px
+		color: #999 !important
+
+.close:hover i
+	text-shadow: 1px 1px 40px rgb(0,0,0) !important
+	-moz-transition: all 0.2s 0.05s ease-in
+	-o-transition: all 0.2s 0.05s ease-in
+	-webkit-transition: all 0.2s 0.05s ease-in
+
+.search_result	
+	flex-grow: 8
+
+
+
+
+i
+	color: $accent_color
+
+.opacity
+	display: none
+	width: 100%
+	height: 100%
+	position: fixed
+	top: 0
+	left: 0
+	background-color: rgba(255,255,255,.5)
+	z-index: 855
+	overflow: hidden
+
+.wrapper
+	
+
+#top_bar
+	background-color: #e7e7e7
+#address
+	//line-height: 30px
+	font-size: 16px
+#phone
+	//line-height: 60px
+	font-size: 20px
+#logo a
+	>*
+		float: left
+	h2
+		font-family: 'AzoftSansRegular'
+		color: $accent-color
+		font-size: 35px
+
+
+#fixed_top_bar
+	background-color: #fff
+	a
+		color: $accent-color !important
+		font-size: 17px
+#search_form
+	font-size: 20px
+#search_input
+	display: block
+	color: $accent_color
+	height: 100%
+	width: 100%
+	padding-left: 14px
+	border: 1px $accent_color solid
+	border-radius: 23px
+	-webkit-border-radius: 23px
+	-moz-border-radius: 23px
+	-khtml-border-radius: 23px
+	//background: #e7e7e7
+#search_input:focus
+	background-color: #fff
+	border: 2px $accent_color solid
+#search_button
+	position: absolute
+	background-color: transparent
+	color: $accent_color
+	border: none
+	right: 10px
+	top: 0
+	i
+		line-height: 40px
+
+#sidebar
+	background-color: #fff
+	a
+		color: $accent-color !important
+	
+#sidebar .active
+	color: #fff !important
+
+.icheckbox_line-blue.checked, .iradio_line-blue.checked
+	background: #2489c5 !important
+.active
+	background-color: #2489c5
+.icheckbox_line-blue
+	width: 70%
+	margin: 4px auto !important
+	border-radius: 0 !important
+	background: #43a8e4 !important
+
+.dcjq-parent
+	padding: 2px 5px
+
+.filter
+	p
+		text-align: center
+
+.accordeon
+	p
+		text-align: center
+
+#breadcrumbs
+	background-color: #fff
+	font-size: 18px
+	-webkit-box-shadow: 0px 5px 5px 0px rgba(50, 50, 50, 0.5)
+	-moz-box-shadow: 0px 5px 5px 0px rgba(50, 50, 50, 0.5)
+	box-shadow: 0px 5px 5px 0px rgba(50, 50, 50, 0.5)
+	p
+		line-height: 30px
+		font-size: 15px
+	a
+		color: $accent-color !important
+
+#divs
+	background-color: #fff
+
+.cat_items
+	background-color: #e7e7e7
+	border: 1px solid #b7b7b7
+
+#footer
+	background-color: #e7e7e7
+
+//contacts.php
+
+.contacts
+	background-color: #e9e9e9
+
+// ---------- BOOTSTRAP
+.form
+    align-items: center
+    display: flex
+    flex-direction: column
+    justify-content: center
+    //width: 60%
+    >*
+    	//width: 100%
+    button
+    	border: medium none
+    	background-color: inherit
+    	margin: 20px auto
+    	text-transform: uppercase
+    	font-size: 1rem
+    	color: #03A9F4
+    	font-weight: bold
+    	padding: 1px 5px
+
+.or
+	padding-top: 0.5rem
+
+.info,.contact_form
+	background-color: rgba(255,255,255,.85)
+	>h3,h4
+		text-align: center
+		.first
+		margin-bottom: 10px !important
+	>h3:first-child
+		margin-top: 0 !important
+	>h3
+		margin-top: 20px !important
+	>hr
+		width: 100%
+		border-top: 1px solid #bbb
+		margin-top: 10px
+		margin-bottom: 10px
+
+.material-textfield
+	font-size: 14px
+	padding-top: 1rem !important
+	label
+		font-weight: 400
+		line-height: normal
+
+//beatiful input  
+
+$sans-serif: SegoeUILight, Arial, sans-serif
+
+// ---------- COMPONENT
+.material-textfield
+    display: inline-block
+    height: 4rem
+    padding-top: 2rem
+
+    input
+        background: none
+        border: none
+        box-sizing: border-box
+        display: block
+        font-family: $sans-serif
+        font-size: 1rem
+        padding: 0.25rem 0.1rem
+        width: 100%
+
+    input:invalid
+        box-shadow: none
+
+    input:focus
+        outline: none
+
+    label
+        display: inline-block
+        font-family: $sans-serif
+        font-size: 0
+        pointer-events: none
+        position: relative
+        text-transform: uppercase
+        width: 100%
+
+    label::before
+        content: attr(data-content)
+        position: relative
+        transition: all 0.2s ease
+        will-change: font-size, top
+
+    label::after
+        bottom: 0.9rem
+        content: ''
+        height: 0.3rem
+        left: 50%
+        position: absolute
+        transition: all 0.2s ease
+        width: 0
+        will-change: width, left
+
+    label::before, input[required]:focus ~ label::before
+        font-size: 0.75rem
+        top: -3.25rem
+
+    input:focus ~ label::after
+        left: 0%
+        width: 100%
+
+    input:invalid ~ label::before
+        font-size: 0.9rem
+        top: -2rem
+
+// ---------- CONSTRUCTOR
+@mixin material-textfield($name, $lightcolor, $color, $darkcolor)
+    .material-textfield.#{$name}
+        input
+            border-bottom: 0.1rem solid $color
+            color: $darkcolor
+
+        label::after
+            background: $color
+
+        label::before, input[required]:focus ~ label::before
+            color: $lightcolor
+
+        input:invalid ~ label::before
+            color: $color
+
+// ---------- INCLUDE COMPONENTS
+$blue: #03A9F4
+$lightblue: lighten($blue, 15%)
+$darkblue: darken($blue, 15%)
+
+$red: #F44336
+$lightred: lighten($red, 15%)
+$darkred: darken($red, 15%)
+
+@include material-textfield("blue", $lightblue, $blue, $darkblue)
+@include material-textfield("red", $lightred, $red, $darkred)
+
+//end beautiful input
+//end contacts.php

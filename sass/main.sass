@@ -1,0 +1,334 @@
+.center_h3
+	span
+		font-size: 15px
+
+a, a:hover, a:active, input:focus
+	outline: none !important
+	text-decoration: none !important
+
+.center_h1
+	text-shadow: 0px 0px 6px rgba(0,0,0,0.7)
+	font-family: "AlexandraScriptRegular"
+	position: relative
+	padding-left: 23px
+	font-size: 100px
+	color: #00a9eb
+	margin: 0px -4px
+	line-height: 80px
+	padding-top: 11px
+	background-color: rgba(255, 255, 255, 0.6)
+
+.center
+	float: right !important
+	height: 100%
+	background-color: #dddddb
+	overflow: scroll
+	overflow-x: hidden
+	scroll-behavior: smooth
+
+.button
+	position: relative
+	background-color: rgba(0,169,235,1)
+	background: #00a9eb
+	background: -moz-linear-gradient(top,  #00a9eb 0%, #008edb 100%)
+	background: -webkit-linear-gradient(top,  #00a9eb 0%,#008edb 100%)
+	background: linear-gradient(to bottom,  #00a9eb 0%,#008edb 100%)
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a9eb', endColorstr='#008edb',GradientType=0 )
+	border: none
+	border-bottom: 7px solid #007CC9
+	border-radius: 3px
+	-webkit-border-radius: 3px
+	-moz-border-radius: 3px
+	border-bottom-left-radius: 7px 14px
+	border-bottom-right-radius: 7px 14px
+	-webkit-box-shadow: 0 3px 5px rgba(0,0,0,0.4)
+	box-shadow: 0 3px 5px rgba(0,0,0,0.4)
+	text-shadow: 0 1px 1px rgba(0,0,0,0.3)
+	letter-spacing: 3px
+	color: white
+	font-family: "AzoftSansItalic"
+	&:before
+		border: 1px solid rgba(255,255,255,0.4)
+		border-top: none
+		border-radius: 3px
+		-moz-border-radius: 3px
+		-webkit-border-radius: 3px
+		width: 100%
+		height: 100%
+		left: 0
+		top: 0
+		box-shadow: inset 0 0 10px rgba(255,255,255,0.1)
+	&:active
+		border: none
+		bottom: -7px
+		-webkit-box-shadow: none
+		box-shadow: none
+		border-radius: 3px
+		&:before
+			border: none
+			-webkit-box-shadow: inset 0 0 10px rgba(0,0,0,0.2)
+			box-shadow: inset 0 0 10px rgba(0,0,0,0.2)
+	&:hover
+		background: #008edb
+		background: -moz-linear-gradient(top,  #008edb 0%, #00a9eb 100%)
+		background: -webkit-linear-gradient(top,  #008edb 0%,#00a9eb 100%)
+		background: linear-gradient(to bottom,  #008edb 0%,#00a9eb 100%)
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#008edb', endColorstr='#00a9eb',GradientType=0 )
+
+.preloader
+	position: fixed
+	display: none
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	background-color: #fff
+	z-index: 999
+	background-image: url(../img/preloader.gif)
+	background-repeat: no-repeat
+	background-position: center
+
+.div_map
+	margin: 0 -4px
+	background-image: url(../img/map.png)
+	-webkit-background-size: 100% auto
+	background-size: 100% auto
+	background-repeat: no-repeat
+	background-position: 0px -9px
+	height: 180px
+	position: relative
+	a
+		width: 100%
+		height: 100%
+		position: absolute
+
+body
+	position: absolute
+	top: 0px
+	left: 0px
+	background-color: #e7e7e7
+	width: 100%
+	height: 100vh
+	overflow: hidden
+	margin: 0px
+	padding: 0px
+
+.center_button
+	width: 49%
+	padding: 8px 0
+	&:first
+		float: left
+	&:nth-child(2)
+		float: right
+
+.center_h3_2
+	float: right
+
+.center_h3_1
+	float: left
+
+.KIPiA
+	display: block
+	position: absolute
+	top: 69px
+	left: 125px
+	font-family: "HattoriHanzoLight"
+	font-size: 14px
+	color: #777777
+	text-shadow: 0px 0px 6px rgba(0,0,0,0.7)
+	margin: 0
+
+.form
+	padding: 10px 3px
+	margin: 10px auto 0
+	width: 92%
+	background-color: rgba(77,77,77,0)
+	font-family: "AzoftSansItalic"
+	text-transform: uppercase
+	border: 3px #00a9eb solid
+	input
+		width: 49%
+		height: 36px
+		border: 1px rgba(255,255,255,0.6) solid
+		border-radius: 18px
+		-webkit-border-radius: 25px
+		-moz-border-radius: 25px
+		-khtml-border-radius: 25px
+		background: #fff
+		padding: 0 2px 0 0
+		text-align: center
+		font-size: 11px
+		&:focus
+			padding: 0
+			background-color: #fff
+			color: #00a9eb
+			border: 2px #00a9eb solid
+			font-size: 12px
+		&:invalid
+			box-shadow: none
+	button
+		width: 50%
+		height: 35px
+		margin: 10px auto 0
+		display: block
+		border: none
+		&:active
+			background-color: #00a9eb
+
+.input_p
+	color: #777777
+	padding-left: 5px
+	text-align: center
+
+.left
+	background-image: url(../img/left.jpg)
+	background-repeat: no-repeat
+	-webkit-background-size: 105% auto
+	background-size: 105% auto
+	-webkit-box-shadow: inset 15px 0px 15px #e7e7e7
+	box-shadow: inset 15px 0px 15px #e7e7e7
+	background-position: center center
+
+.semi_opacity
+	width: 100%
+	height: 100%
+	background-color: transparent
+	text-align: center
+
+.leftcenter,.left,.center,.right
+	display: inline-block
+	height: 100%
+	padding-left: 0px !important
+	padding-right: 0px !important
+
+.center_semi_opacity
+	cursor: pointer
+	display: none
+	background-color: rgba(255,255,255,0.5)
+	position: absolute
+	width: 100%
+	height: 100%
+	padding: 14% 43.5%
+
+.fa-phone
+	color: #00a9eb
+
+.right
+	background-image: url(../img/right.jpg)
+	background-repeat: no-repeat
+	-webkit-background-size: 105% auto
+	background-size: 105% auto
+	-webkit-box-shadow: inset -15px 0px 15px #e7e7e7
+	box-shadow: inset -15px 0px 15px #e7e7e7
+	background-position: center center
+
+.helper
+	display: -moz-inline-box
+	display: inline-block
+	height: 100%
+	width: 0px
+	vertical-align: middle
+
+.center_h3_1,.center_h3_2
+	margin: 17px 10px 22px
+	font-size: 22px
+	color: #777777
+	font-family: "GloberThin"
+	text-shadow: 0px 0px 6px rgba(0,0,0,0.7)
+
+#response
+	display: none
+	margin: 10px 0 0
+	text-align: center
+	color: #fff
+
+.center_div
+	display: -moz-inline-box
+	display: inline-block
+	vertical-align: middle
+	width: 98%
+	margin-left: 4px
+	position: relative
+	text-align: left
+	a
+		clear: both
+		line-height: 25px
+		font-size: 13px
+		font-family: "GloberThin"
+		text-transform: uppercase
+		display: block
+		text-align: center
+		margin: auto
+		font-weight: bold
+		color: #777777
+
+.button:after,.button:before
+	content: ''
+	position: absolute
+
+.mfp-fade
+	&.mfp-wrap
+		&.mfp-ready
+			.mfp-content
+				opacity: 1
+		.mfp-content
+			opacity: 0
+			-webkit-transition: all 0.15s ease-out
+			-moz-transition: all 0.15s ease-out
+			transition: all 0.15s ease-out
+		&.mfp-removing
+			.mfp-content
+				opacity: 0
+	&.mfp-bg
+		opacity: 0
+		-webkit-transition: all 0.15s ease-out
+		-moz-transition: all 0.15s ease-out
+		transition: all 0.15s ease-out
+		&.mfp-ready
+			opacity: 0.8
+		&.mfp-removing
+			opacity: 0
+
+.side_button
+	padding: 8px 26px
+	width: 74%
+	margin: 0 13% 0
+
+article
+	margin-bottom: 15%
+	h3
+		font-family: "AaarghRegular"
+		color: #000
+		margin: 0px
+		text-shadow: 0px 0px 6px rgba(0,0,0,0.7)
+	p
+		font-family: "HattoriHanzoLight"
+		margin: 15% auto 2%
+		font-size: 1.2em
+	& > div
+		& > img
+			display: inline-block
+			width: 19%
+
+.container-fluid,.row
+	height: 100%
+
+.side_div
+	display: -moz-inline-box
+	display: inline-block
+	vertical-align: middle
+	width: 85%
+	border: 4px rgba(255,255,255,0.2) solid
+	background-color: rgba(255,255,255, 0.7)
+	text-align: left
+	padding: 30px 10px 6%
+	margin-left: 4px
+	&:hover
+		cursor: pointer
+		background-color: rgba(255,255,255, 0.8)
+		border: 4px rgba(0,169,235,1) solid
+
+.buttons_div
+	width: 90%
+	margin: 10px auto 7px
+

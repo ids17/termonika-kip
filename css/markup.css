@@ -1,0 +1,547 @@
+body {
+  min-width: 900px;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+#content {
+  min-height: 100%;
+}
+
+#logo2 {
+  z-index: 901;
+  position: fixed;
+  top: 0;
+  left: 0px;
+  display: none;
+}
+
+#top_bar {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 11;
+}
+
+#logo a {
+  display: flex;
+  align-items: flex-end;
+}
+
+#address, #phone {
+  width: 180px;
+  text-align: center;
+}
+
+#fixed_top_bar {
+  height: 50px;
+  width: 100%;
+  z-index: 900;
+}
+
+#fixed_top_bar nav {
+  width: 200px;
+}
+
+#fixed_top_bar nav a:last-child {
+  float: right;
+}
+
+#ftb {
+  width: 800px;
+  margin: auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#search_form {
+  width: 265px;
+  height: 40px;
+  padding: 0;
+  z-index: 501;
+  position: relative;
+}
+
+#cart_button {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  right: 40px;
+}
+
+#sidebar {
+  width: 25%;
+  display: inline-block;
+  bottom: 0px;
+  z-index: 9;
+  position: fixed;
+  overflow-y: scroll;
+}
+
+#design_sidebar {
+  width: 90%;
+  padding: 10px 0 60px;
+  float: left;
+}
+
+.hide_scrollbar {
+  width: 30px;
+  height: 100%;
+  z-index: 10;
+  position: fixed;
+  background-color: #fff;
+}
+
+#breadcrumbs {
+  width: 75%;
+  min-height: 50px;
+  position: fixed;
+  left: 25vw;
+  padding: 5px 10px;
+  z-index: 11;
+}
+
+#divs {
+  width: 75%;
+  z-index: 8;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  min-height: 800px;
+  margin-left: 25vw;
+}
+
+#catalog {
+  width: 100%;
+  height: 100%;
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+.cat_items {
+  min-height: 160px;
+  flex-grow: 1;
+}
+
+#footer {
+  width: 100%;
+  height: 170px;
+  position: absolute;
+  z-index: 11;
+}
+
+.contacts {
+  height: 100vh;
+}
+
+.big_map {
+  position: absolute;
+  top: 0;
+  padding-top: 110px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.flex_divs {
+  width: 100%;
+  height: 100%;
+}
+
+.flex_divs > div {
+  width: 33%;
+  margin-top: 110px;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact_form, .info {
+  height: 100%;
+  width: 33%;
+  z-index: 2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact_form {
+  float: left;
+}
+
+.info {
+  float: right;
+  padding: 0 10px;
+}
+
+.metro > div {
+  display: inline-block;
+}
+
+#cart_button {
+  border: none;
+  background-color: transparent;
+}
+
+#cart_button i {
+  -moz-transition: all 0.2s 0.05s ease-in;
+  -o-transition: all 0.2s 0.05s ease-in;
+  -webkit-transition: all 0.2s 0.05s ease-in;
+  font-size: 35px;
+  line-height: 50px;
+}
+
+#cart_button:hover i {
+  color: #008ed0;
+}
+
+#cart {
+  position: fixed;
+  top: 110px;
+  bottom: 0;
+  z-index: 20;
+  background-color: transparent;
+  width: 400%;
+  margin: auto;
+  background-color: #FFF;
+}
+
+#cart > div {
+  float: left;
+}
+
+#cart #prev_cart {
+  width: 25%;
+  height: 100%;
+  background-color: #e7e7e7;
+  position: relative;
+  display: flex;
+  align-content: stretch;
+}
+
+#cart #close_button {
+  position: absolute;
+  top: 0px;
+  right: 30px;
+  border: none;
+  background-color: transparent;
+  font-size: 35px;
+}
+
+#cart #close_button i {
+  color: #000 !important;
+  -moz-transition: all 0.2s 0.05s ease-in;
+  -o-transition: all 0.2s 0.05s ease-in;
+  -webkit-transition: all 0.2s 0.05s ease-in;
+}
+
+#cart #close_button:hover i {
+  color: #008ed0;
+}
+
+#cart #left_part {
+  width: 25%;
+  min-width: 200px;
+  background-color: #e7e7e7;
+}
+
+#cart #cart_info {
+  position: relative;
+  width: 75%;
+  background-color: #fff;
+  overflow-y: scroll;
+}
+
+#cart .cart_item_qty {
+  width: 50px;
+}
+
+#cart .help_out_next {
+  padding: 30px;
+}
+
+#cart #cart_table {
+  width: 100%;
+}
+
+#cart #full_login, #cart #login, #cart #forgetPas_popup, #cart #registration_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#cart #full_login {
+  height: 50%;
+  position: relative;
+}
+
+#cart #full_login #login_form {
+  width: 60%;
+  min-width: 194px;
+}
+
+#forgetPas_popup {
+  position: absolute;
+  top: 0px;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+}
+
+#close_FP {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#left_part {
+  position: relative;
+}
+
+#left_part input {
+  width: 100%;
+  border: none;
+}
+
+#left_part button {
+  display: block;
+  border: none;
+  text-transform: uppercase;
+  background-color: transparent;
+}
+
+#left_part #registration {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+#left_part #registration {
+  height: 50%;
+}
+
+#left_part #registration h3 {
+  margin-bottom: 25px !important;
+}
+
+#left_part #reg_response {
+  display: none;
+}
+
+#left_part #registration_form {
+  width: 80%;
+}
+
+#left_part #registration_form > div > * {
+  display: inline-block;
+}
+
+#left_part #registration_form > div > input {
+  width: 70%;
+}
+
+#left_part #user_info {
+  height: 100%;
+}
+
+#left_part #user_info > div {
+  height: 49%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#left_part #user_info i {
+  font-size: 70px;
+}
+
+#left_part #user_info hr {
+  height: 1%;
+  width: 100%;
+  margin: 0;
+  border-top: 2px solid #000;
+}
+
+#left_part #user_info button {
+  border: none;
+  background-color: transparent;
+  margin-top: 20px;
+}
+
+.cart_item_img {
+  height: 90px;
+  width: 150px;
+  background-size: cover;
+  background-position: center;
+}
+
+.delete_button {
+  background-color: transparent;
+  border: none;
+}
+
+.delete_button i {
+  color: tomato;
+  font-size: 22px;
+}
+
+#buyer_info {
+  width: 25%;
+  height: 100%;
+}
+
+.back_prev {
+  width: 20%;
+  height: 100%;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: #e7e7e7;
+  -moz-transition: all 0.4s 0.05s ease-in;
+  -o-transition: all 0.4s 0.05s ease-in;
+  -webkit-transition: all 0.4s 0.05s ease-in;
+}
+
+.back_prev i {
+  font-size: 25px;
+}
+
+.back_prev:hover {
+  background-color: #aaa;
+}
+
+#someText {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+}
+
+#someText h1 {
+  width: 70%;
+  text-align: center;
+}
+
+#info_out_prev {
+  height: 100%;
+  overflow-y: scroll;
+  padding: 0;
+  position: relative;
+}
+
+#b_info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 50px 25px 25px 25px;
+}
+
+#buyer, #consignee {
+  width: 40%;
+}
+
+#buyer h2, #buyer h3, #consignee h2, #consignee h3 {
+  margin-bottom: 20px !important;
+}
+
+#buyer > div, #consignee > div {
+  height: 35px;
+}
+
+#buyer > div > input, #consignee > div > input {
+  float: right;
+}
+
+#ship_method {
+  padding: 25px 25px 50px 25px;
+}
+
+#ship_items {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#next_step1, #next_step2 {
+  width: 100%;
+  cursor: pointer;
+  display: block;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00a9eb;
+}
+
+#next_step1 h4, #next_step2 h4 {
+  text-transform: uppercase;
+  color: #fff !important;
+}
+
+#confirm_order {
+  width: 25%;
+  height: 100%;
+}
+
+.confirm_div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm_div button {
+  background-color: transparent;
+  border: none;
+}
+
+#newPas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  z-index: 901;
+}
+
+#newPas h2 {
+  margin-bottom: 40px !important;
+}
+
+#newPas_form button {
+  border: none;
+  margin: 15px auto;
+  text-transform: uppercase;
+  background-color: transparent;
+}
+
+#newPas_form > * {
+  display: block;
+  margin: 5px auto;
+}

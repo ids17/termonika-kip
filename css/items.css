@@ -1,0 +1,115 @@
+.main_info {
+  width: 60%;
+}
+
+.img_info {
+  width: 40%;
+}
+
+.flex_row {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  margin-bottom: 20px;
+}
+
+.buttons_div {
+  padding: 20px;
+}
+
+.question_button {
+  border: medium none;
+  background-color: transparent;
+  color: #00a9eb;
+  margin: 20px auto;
+  display: block;
+}
+
+.button_buy, .price_button {
+  border: none;
+  background-color: #00a9eb;
+  color: white;
+  text-transform: uppercase;
+  padding: 4px 0px;
+  width: 150px;
+  box-shadow: 0px 0px 53px 10px #bbbbbb;
+}
+
+.successButton {
+  background-color: #58D858 !important;
+}
+
+.short_info {
+  font-size: 13px !important;
+}
+
+#thumbs li {
+  display: inline-block;
+}
+
+#thumbs img {
+  padding: 0 !important;
+}
+
+.img_set {
+  background-color: #FFF;
+}
+
+#photos img {
+  max-width: 300px;
+}
+
+#thumbs {
+  clear: both;
+}
+
+.item_info_column {
+  min-height: 351px;
+  color: #000 !important;
+}
+
+.item_info_column li {
+  list-style-type: circle;
+}
+
+#full_info .active {
+  background-color: transparent;
+}
+
+#full_modes {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 11;
+}
+
+#modes {
+  width: 70%;
+  height: 60%;
+  background-color: #FFF;
+  border: 1px solid #e7e7e7;
+}
+
+.modes {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  min-height: 200px;
+  border-bottom: 1px solid #000;
+}
+
+.modes div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modes div > * {
+  margin: 10px auto !important;
+}

@@ -1,0 +1,102 @@
+section > div {
+  height: 100%;
+  padding-top: 110px;
+  background-color: #e7e7e7;
+  color: #000;
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+section > div p, section > div li {
+  font-size: 20px;
+}
+
+section > div hr {
+  border-top: 1px solid #000;
+  width: 100%;
+  margin: 10px 0 20px;
+}
+
+.text {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text > * {
+  max-width: 90%;
+}
+
+.photo {
+  background-image: url("../img/mars.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 50%;
+}
+
+.photo.plk {
+  background-image: url("../img/scada.jpg");
+}
+
+.photo.proekt {
+  background-image: url("../img/SMS_sshges_16.jpg");
+}
+
+.photo.montazh {
+  background-image: url("../img/1111724484.jpg");
+}
+
+#a_main > div {
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/automation.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.a_main_text {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.a_main_text article {
+  width: 600px;
+  font-size: 20px;
+  text-shadow: 1px 1px 1px #fff;
+}
+
+#extra > div, #order_form > div {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#extra > div h2, #order_form > div h2 {
+  margin-bottom: 50px !important;
+}
+
+#extra > div li, #order_form > div li {
+  list-style-type: circle;
+}
+
+#order_form {
+  background-color: #FFF;
+}
+
+#order_form h2 {
+  text-align: center;
+}
+
+.active {
+  background-color: transparent;
+}

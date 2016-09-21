@@ -1,0 +1,199 @@
+section h1, section p {
+  font-family: 'SegoeUILight';
+}
+
+.history {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  padding-top: 110px;
+}
+
+.history > div {
+  flex-grow: 1;
+  width: 50%;
+}
+
+.history_img {
+  background-image: url("../img/n4.jpg");
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+}
+
+.some_opacity {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.history_description {
+  display: flex;
+}
+
+.history_description > div {
+  width: 70%;
+  margin: auto;
+}
+
+.history_description > div h1 {
+  text-align: center;
+  margin-bottom: 15px !important;
+}
+
+.history_description > div h1, .history_description > div p {
+  color: #000;
+}
+
+.history_description > div hr {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.partners {
+  background-color: #f8f8f8;
+}
+
+.partners_list {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding-top: 110px;
+}
+
+.partners_list > div {
+  width: 90%;
+  margin: auto;
+}
+
+.partners_list > div h1, .partners_list > div p {
+  text-align: center;
+  color: #000;
+}
+
+.partners_slider {
+  background-color: #fff;
+  width: 100%;
+  height: 300px;
+  margin-top: 20px !important;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.slider_item {
+  width: 20%;
+}
+
+.slider_item h1, .slider_item p {
+  color: #000;
+}
+
+.slider_item p {
+  border-top: 1px solid #000;
+  font-size: 13px;
+  width: 90%;
+  margin: auto !important;
+}
+
+.slider_item img {
+  display: block;
+  margin: auto;
+  max-width: 60%;
+  max-height: 70px;
+  padding-bottom: 10px;
+}
+
+.automation {
+  background-color: #fff;
+  background-image: url("../img/automation.jpg");
+  background-size: cover;
+}
+
+.automation_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  bottom: 8%;
+  left: 8%;
+  height: 63%;
+  width: 26%;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 4px solid rgba(200, 200, 200, 0.6);
+  cursor: pointer;
+  text-shadow: 2px 2px 2px black;
+  color: #fff;
+  -moz-transition: all 0.6s 0.05s ease-in;
+  -o-transition: all 0.6s 0.05s ease-in;
+  -webkit-transition: all 0.6s 0.05s ease-in;
+}
+
+.automation_title > div {
+  width: 90%;
+}
+
+.automation_title > div:first-child {
+  margin-bottom: 25px;
+}
+
+.automation_title:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 4px solid #00a9eb;
+  height: 63%;
+  width: 76%;
+}
+
+.articles {
+  background-color: #fff;
+}
+
+.articles_list {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding-top: 110px;
+}
+
+.cards {
+  margin: auto;
+  width: 75%;
+  display: flex;
+  border: 2px solid #e7e7e7;
+}
+
+.active {
+  background-color: transparent;
+}
+
+.card {
+  height: 100%;
+  line-height: normal !important;
+}
+
+.card a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #000;
+}
+
+.card a img {
+  width: 100%;
+}
+
+.card a h5 {
+  text-align: center;
+}
+
+.card a hr {
+  margin: 3px 0;
+  width: 100%;
+  border-top: 1px solid #000;
+}
+
+.onepage-pagination a {
+  background-color: transparent;
+}

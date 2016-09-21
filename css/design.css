@@ -1,0 +1,385 @@
+body {
+  font-family: 'SegoeUILight','HattoriHanzoLight',arial !important;
+}
+
+.preloader {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 999;
+  background-image: url(../img/preloader.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#search_result {
+  position: fixed;
+  top: 110px;
+  width: 100%;
+  justify-content: space-around;
+  align-items: stretch;
+  padding: 0;
+  margin: 0;
+  display: none;
+  z-index: 998;
+  background-color: #e7e7e7;
+}
+
+#search_result > div {
+  height: 100%;
+  background-color: #fff;
+  padding: 20px 20px;
+  overflow-y: scroll;
+}
+
+#search_result > div > img {
+  width: 60px;
+}
+
+#search_result > div > a {
+  border-bottom: 1px #000 solid;
+  cursor: pointer;
+}
+
+.close {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1 !important;
+  background-color: transparent !important;
+  text-shadow: 0 1px 0 #e7e7e7 !important;
+}
+
+.close i {
+  font-size: 40px;
+  color: #999 !important;
+}
+
+.close:hover i {
+  text-shadow: 1px 1px 40px black !important;
+  -moz-transition: all 0.2s 0.05s ease-in;
+  -o-transition: all 0.2s 0.05s ease-in;
+  -webkit-transition: all 0.2s 0.05s ease-in;
+}
+
+.search_result {
+  flex-grow: 8;
+}
+
+i {
+  color: #00a9eb;
+}
+
+.opacity {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 855;
+  overflow: hidden;
+}
+
+#top_bar {
+  background-color: #e7e7e7;
+}
+
+#address {
+  font-size: 16px;
+}
+
+#phone {
+  font-size: 20px;
+}
+
+#logo a > * {
+  float: left;
+}
+
+#logo a h2 {
+  font-family: 'AzoftSansRegular';
+  color: #00a9eb;
+  font-size: 35px;
+}
+
+#fixed_top_bar {
+  background-color: #fff;
+}
+
+#fixed_top_bar a {
+  color: #00a9eb !important;
+  font-size: 17px;
+}
+
+#search_form {
+  font-size: 20px;
+}
+
+#search_input {
+  display: block;
+  color: #00a9eb;
+  height: 100%;
+  width: 100%;
+  padding-left: 14px;
+  border: 1px #00a9eb solid;
+  border-radius: 23px;
+  -webkit-border-radius: 23px;
+  -moz-border-radius: 23px;
+  -khtml-border-radius: 23px;
+}
+
+#search_input:focus {
+  background-color: #fff;
+  border: 2px #00a9eb solid;
+}
+
+#search_button {
+  position: absolute;
+  background-color: transparent;
+  color: #00a9eb;
+  border: none;
+  right: 10px;
+  top: 0;
+}
+
+#search_button i {
+  line-height: 40px;
+}
+
+#sidebar {
+  background-color: #fff;
+}
+
+#sidebar a {
+  color: #00a9eb !important;
+}
+
+#sidebar .active {
+  color: #fff !important;
+}
+
+.icheckbox_line-blue.checked, .iradio_line-blue.checked {
+  background: #2489c5 !important;
+}
+
+.active {
+  background-color: #2489c5;
+}
+
+.icheckbox_line-blue {
+  width: 70%;
+  margin: 4px auto !important;
+  border-radius: 0 !important;
+  background: #43a8e4 !important;
+}
+
+.dcjq-parent {
+  padding: 2px 5px;
+}
+
+.filter p {
+  text-align: center;
+}
+
+.accordeon p {
+  text-align: center;
+}
+
+#breadcrumbs {
+  background-color: #fff;
+  font-size: 18px;
+  -webkit-box-shadow: 0px 5px 5px 0px rgba(50, 50, 50, 0.5);
+  -moz-box-shadow: 0px 5px 5px 0px rgba(50, 50, 50, 0.5);
+  box-shadow: 0px 5px 5px 0px rgba(50, 50, 50, 0.5);
+}
+
+#breadcrumbs p {
+  line-height: 30px;
+  font-size: 15px;
+}
+
+#breadcrumbs a {
+  color: #00a9eb !important;
+}
+
+#divs {
+  background-color: #fff;
+}
+
+.cat_items {
+  background-color: #e7e7e7;
+  border: 1px solid #b7b7b7;
+}
+
+#footer {
+  background-color: #e7e7e7;
+}
+
+.contacts {
+  background-color: #e9e9e9;
+}
+
+.form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form button {
+  border: medium none;
+  background-color: inherit;
+  margin: 20px auto;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: #03A9F4;
+  font-weight: bold;
+  padding: 1px 5px;
+}
+
+.or {
+  padding-top: 0.5rem;
+}
+
+.info, .contact_form {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.info > h3, .info h4, .contact_form > h3, .contact_form h4 {
+  text-align: center;
+  margin-bottom: 10px !important;
+}
+
+.info > h3:first-child, .contact_form > h3:first-child {
+  margin-top: 0 !important;
+}
+
+.info > h3, .contact_form > h3 {
+  margin-top: 20px !important;
+}
+
+.info > hr, .contact_form > hr {
+  width: 100%;
+  border-top: 1px solid #bbb;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.material-textfield {
+  font-size: 14px;
+  padding-top: 1rem !important;
+}
+
+.material-textfield label {
+  font-weight: 400;
+  line-height: normal;
+}
+
+.material-textfield {
+  display: inline-block;
+  height: 4rem;
+  padding-top: 2rem;
+}
+
+.material-textfield input {
+  background: none;
+  border: none;
+  box-sizing: border-box;
+  display: block;
+  font-family: SegoeUILight, Arial, sans-serif;
+  font-size: 1rem;
+  padding: 0.25rem 0.1rem;
+  width: 100%;
+}
+
+.material-textfield input:invalid {
+  box-shadow: none;
+}
+
+.material-textfield input:focus {
+  outline: none;
+}
+
+.material-textfield label {
+  display: inline-block;
+  font-family: SegoeUILight, Arial, sans-serif;
+  font-size: 0;
+  pointer-events: none;
+  position: relative;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.material-textfield label::before {
+  content: attr(data-content);
+  position: relative;
+  transition: all 0.2s ease;
+  will-change: font-size, top;
+}
+
+.material-textfield label::after {
+  bottom: 0.9rem;
+  content: '';
+  height: 0.3rem;
+  left: 50%;
+  position: absolute;
+  transition: all 0.2s ease;
+  width: 0;
+  will-change: width, left;
+}
+
+.material-textfield label::before, .material-textfield input[required]:focus ~ label::before {
+  font-size: 0.75rem;
+  top: -3.25rem;
+}
+
+.material-textfield input:focus ~ label::after {
+  left: 0%;
+  width: 100%;
+}
+
+.material-textfield input:invalid ~ label::before {
+  font-size: 0.9rem;
+  top: -2rem;
+}
+
+.material-textfield.blue input {
+  border-bottom: 0.1rem solid #03A9F4;
+  color: #0275a8;
+}
+
+.material-textfield.blue label::after {
+  background: #03A9F4;
+}
+
+.material-textfield.blue label::before, .material-textfield.blue input[required]:focus ~ label::before {
+  color: #47c4fd;
+}
+
+.material-textfield.blue input:invalid ~ label::before {
+  color: #03A9F4;
+}
+
+.material-textfield.red input {
+  border-bottom: 0.1rem solid #F44336;
+  color: #d2190b;
+}
+
+.material-textfield.red label::after {
+  background: #F44336;
+}
+
+.material-textfield.red label::before, .material-textfield.red input[required]:focus ~ label::before {
+  color: #f8877f;
+}
+
+.material-textfield.red input:invalid ~ label::before {
+  color: #F44336;
+}
