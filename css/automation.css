@@ -37,15 +37,15 @@ section > div hr {
   width: 50%;
 }
 
-.photo.plk {
+#plk > .photo {
   background-image: url("../img/scada.jpg");
 }
 
-.photo.proekt {
+#proekt > .photo {
   background-image: url("../img/SMS_sshges_16.jpg");
 }
 
-.photo.montazh {
+#montazh > .photo {
   background-image: url("../img/1111724484.jpg");
 }
 
