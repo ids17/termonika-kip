@@ -525,6 +525,8 @@ $(window).load(function(){
 							$('#registration input').css({border: "none"});
 						}, 500);
 					});                  
+				}else{
+					return false;
 				}
 			});
 
