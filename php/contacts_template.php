@@ -39,9 +39,9 @@
 			<h3>Адрес</h3>
 			<h4 class="first">194100, г. Санкт-Петербург <br><strong>ул. Александра Матросова, д. 4 корп.2,лит.Д</strong><br>2 этаж, оф. 205-206<br></h4><h4 class="second"><strong>Въезд с Выборгской наб.,55</strong><br>Территория БЦ "Оккервиль", между д.53 и заправкой Линос)</h4>
 			<div class="metro">
-				<div><i></i><p>м. Лесная</p></div>
-				<div><i></i><p>м. Черная Речка</p></div>
-				<div><i></i><p>м. Выборгская</p></div>
+				<div><p><i class="fa fa-circle" style="color: red;" aria-hidden="true"></i> м. Лесная </p></div>
+				<div><p><i class="fa fa-circle" style="color: blue;" aria-hidden="true"></i> м. Черная Речка </p></div>
+				<div><p><i class="fa fa-circle" style="color: red;" aria-hidden="true"></i> м. Выборгская </p></div>
 			</div>
 			<a href="#">Скачать схему проезда</a>
 			<hr>

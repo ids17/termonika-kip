@@ -166,6 +166,7 @@ $('.close').hover(function(){
 		$('body').css('overflow-y','visible');
 	});
 
+
 	// таблица товара
 	$('#tab-product li:first-child').addClass('active');
 	var activeTab = $('#tab-product li:first-child').children('a').attr('href');
@@ -178,7 +179,10 @@ $('.close').hover(function(){
 		$(this).addClass('active');
 		var activeTab = $(this).children('a').attr('href');
 		$(activeTab).addClass('active');
+		return false;
 	});
+
+
 
 	//ajax поиск
 
@@ -406,7 +410,9 @@ function showCart(){
 							id: $(this).parents().parents().attr('id'),
 							comment: this.value
 						}
-					}).done(function(response) {alert("done");});
+					}).done(function(response) {
+					//alert("done");
+					});
 				});
 				
 
