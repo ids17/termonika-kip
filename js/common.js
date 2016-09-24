@@ -120,6 +120,7 @@ $(window).load(function(){
 				th.trigger("reset");
 			}, 500);
 		});
+		return false;
 	});
 
 	//попап поиска
@@ -222,10 +223,12 @@ $(window).load(function(){
 										th.trigger("reset");
 									}, 500);
 								});
+								return false;
 							});
 						}, 500);
 					}
 				});
+				return false;
 		};
 	});
 
