@@ -35,15 +35,15 @@
 		</div>
 		<div>
 			<label>E-mail</label>
-			<input type="text" value="" size="20" name="email" autocomplete="off" required="true">
+			<input type="text" size="20" name="email" autocomplete="off" required="true">
 		</div>
 		<div>
 			<label>Пароль</label>
-			<input id="pword" type="password" value="" size="20" maxlength="20" name="password" autocomplete="off" required="true">
+			<input id="pass1" type="password" size="20" maxlength="20" name="password" autocomplete="off" required="true">
 		</div>
 		<div> 
 			<label>Подтверждение пароля</label>
-			<input type="password" size="20" maxlength="20" name="password2" autocomplete="off" required="true">
+			<input id="pass2" type="password" size="20" maxlength="20" name="password2" autocomplete="off" required="true">
 		</div>
 		<div> 
 			<button type="submit" name="submit" class="login_button">Зарегистрироваться</button>

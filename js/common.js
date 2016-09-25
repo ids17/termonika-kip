@@ -449,60 +449,68 @@ $(window).load(function(){
 				$('#forgetPas_popup').animate({left:'-100%'},'slow');
 			});
 
-			//registration
-			var temp = "";
-			var t1, t2, t3, t4;
-			t1 =t2 = t3 = t4 = 0;
-			$('#registration input').change(function() { 
-				switch(this.name){
-					case "name": 
-						if (this.value !== "") {
-							$(this).css({border:'1px solid #82FA58'});
-							t1 = 1;;
-						} else {
-							$(this).css({border:'1px solid tomato'});
-						}
-						break
+
+			//проверка данных на регистрацию
+			$('#registration input').keyup(function() { 
+				var correct = false;
+				switch(this.name) {
+					case "name":
+						if (this.value != "") correct = true; 
+						break;
 					case "lastname":
-						if (this.value !== "") {
-							$(this).css({border:'1px solid #82FA58'});
-						}
-						break
+						correct = true;
+						break;
 					case "email":
-						if (this.value.match(/^[a-zA-Z0-9_\.\-]+@([a-zA-Z0-9\-]+\.)+[a-zA-Z]{2,}$/)) {
-							$(this).css({border:'1px solid #82FA58'});
-							t2 = 1;
-						} else {
-							$(this).css({border:'1px solid tomato'});
-						}
-						break
+						if (this.value.match(/^[a-zA-Z0-9_\.\-]+@([a-zA-Z0-9\-]+\.)+[a-zA-Z]{2,}$/)) 
+							correct = true;
+						break;
 					case "password":
 						if (this.value.match(/[A-Za-z0-9]{8,}/)) {
-							$(this).css({border:'1px solid #82FA58'});
-							temp = this.value;
-							t3 = 1;
-						} else {
-							$(this).css({border:'1px solid tomato'});
-						}
-						break
-					case "password2":
-						if (this.value !== "") {
-							if(this.value === temp){
-								$(this).css({border:'1px solid #82FA58'});
-								t4 = 1;
-							} else {
-								$(this).css({border:'1px solid tomato'});
+							correct = true;
+							if ($("#pass2").val() != "") {
+								if ($("#pass2").val() != this.value) {
+									$("#pass2").removeClass("correct");
+									$("#pass2").addClass("incorrect");
+								} else {
+									$("#pass2").removeClass("incorrect");
+									$("#pass2").addClass("correct");
+								}
 							}
 						} else {
-							$(this).css({border:'1px solid rgba(0, 0, 0, 0.2)'});
+							if ($("#pass2").val() != "") {
+								$("#pass2").removeClass("correct");
+								$("#pass2").addClass("incorrect");
+							}
 						}
-						break
-					default:
+						break;
+					case "password2":
+						if (this.value == $("#pass1").val())
+							correct = true;
+						break;
+					default:	
+				}
+				if (correct) {
+					$(this).removeClass("incorrect");
+					$(this).addClass("correct");
+				} else {
+					$(this).removeClass("correct");
+					$(this).addClass("incorrect");
 				}
 			});
+			
+			
+			
+			//валидация регистрационных данных и отправка запроса
+			$("#registration_form").submit(function(e) {
 
-			$("#registration_form").submit(function() {
-				if(t1 + t2 + t3 + t4 === 4) {
+				var validity = true;
+				$("#registration input").each(function() {
+					if (!$(this).hasClass("correct") && this.name != "lastname")
+						validity = false;
+				});
+				
+				if (validity) {
+					alert("otprr");
 					var th = $(this);
 					$.ajax({
 						type: "POST",
@@ -517,7 +525,8 @@ $(window).load(function(){
 								$('#reg_response').addClass('error_message');
 								$('#reg_response').removeClass('success_message');
 							} else if (parseInt(response) === 2) {
-								document.getElementById('reg_response').innerHTML = 'Поздравляем с успешной регистрацией! Теперь можете войти на сайт.';
+								document.getElementById('reg_response').innerHTML = 
+									'Поздравляем с успешной регистрацией! Теперь можете войти на сайт.';
 								$('#reg_response').fadeIn('fast');
 								$('#reg_response').addClass('success_message');
 								$('#reg_response').removeClass('error_message');
@@ -525,7 +534,7 @@ $(window).load(function(){
 							$('#registration input').css({border: "none"});
 						}, 500);
 					});                  
-				}else{
+				} else {
 					return false;
 				}
 			});
