@@ -505,8 +505,10 @@ $(window).load(function(){
 
 				var validity = true;
 				$("#registration input").each(function() {
-					if (!$(this).hasClass("correct") && this.name != "lastname")
+					if (!$(this).hasClass("correct") && this.name != "lastname"){
 						validity = false;
+						
+					}
 				});
 				
 				if (validity) {

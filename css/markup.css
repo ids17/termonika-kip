@@ -355,6 +355,14 @@ body {
   width: 70%;
 }
 
+#left_part #registration_form .correct {
+  border: 1px solid green;
+}
+
+#left_part #registration_form .incorrect {
+  border: 1px solid red;
+}
+
 #left_part #user_info {
   height: 100%;
 }
