@@ -52,8 +52,14 @@ else{
 			<input type="hidden" name="project_name" value="Термоника">
 			<input type="hidden" name="admin_email" value="eguzman@yandex.ru">
 			<input type="hidden" name="form_subject" value="Запрос товара">
-			<input type="text" name="name" placeholder="Представьтесь, пожалуйста" required="true">
-			<input type="text" name="email" placeholder="Ваш e-mail" required="true">
+			<div class="material-textfield blue">
+					<input type="text" name="name" required autocomplete="off"/>
+					<label data-content="Представьтесь, пожалуйста">Представьтесь, пожалуйста</label>
+				</div>
+				<div class="material-textfield blue">
+					<input type="text" name="email" required autocomplete="off"/>
+					<label data-content="Ваш e-mail">Ваш e-mail</label>
+				</div>
 			<textarea name="question" rows="5" cols="45" wrap="soft" placeholder="Расскажите, что Вам нужно" required="true"></textarea>
 			<button> 
 				<p>Отправить заявку</p>
