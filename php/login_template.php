@@ -15,7 +15,7 @@
 			<input type="text" name="email" placeholder="" autocomplete="off">
 			<label>Пароль</label>
 			<input type="password" name="password" placeholder="" autocomplete="off">
-			<button id="forgetPas_but">Восстановление пароля</button>
+			<p id="forgetPas_but">Восстановление пароля</p>
 			<button type="submit" name="submit" class="login_button">Войти</button>
 		</form>
 	</div>
@@ -25,25 +25,17 @@
 	<h3>Регистрация</h3>
 	<form id="registration_form">
 		<p id="reg_response"></p>
-		<div>
+		<div class="reg_input">
 			<label>Имя</label>
 			<input type="text" size="20" name="name" autocomplete="off" required="true">
 		</div>
-		<div>
-			<label>Фамилия</label>
-			<input type="text" size="20" name="lastname" autocomplete="off">
-		</div>
-		<div>
+		<div class="reg_input">
 			<label>E-mail</label>
 			<input type="text" size="20" name="email" autocomplete="off" required="true">
 		</div>
-		<div>
+		<div class="reg_input">
 			<label>Пароль</label>
 			<input id="pass1" type="password" size="20" maxlength="20" name="password" autocomplete="off" required="true">
-		</div>
-		<div> 
-			<label>Подтверждение пароля</label>
-			<input id="pass2" type="password" size="20" maxlength="20" name="password2" autocomplete="off" required="true">
 		</div>
 		<div> 
 			<button type="submit" name="submit" class="login_button">Зарегистрироваться</button>

@@ -311,7 +311,7 @@ function map_tree($dataset) {
 		}else{
 			$items[$iid]['price'] = "<h2>".$items[$iid]['price']."</h2>";
 		}
-		if(!$items[$iid]['modes']){
+		if(!$items[$iid]['attrs']){
 			$items[$iid]['modes'] = "<button id='addToCart' class='button button_buy'>В список покупок</button>";
 		}else{
 			$items[$iid]['modes'] = "<button class='button button_buy button_modes'>Выбрать модификацию</button>";
@@ -348,7 +348,8 @@ function map_tree($dataset) {
 		@$divs = chunk($full_item_info,'item_template.php');
 		return $divs;
 	}
-
+    
+    //код отображения корзины
 	function show_cart($items, $login_status)
 	{
 		global $connection;

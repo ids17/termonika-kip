@@ -292,7 +292,8 @@ $(window).load(function(){
 			type: "POST",
 			url: "php/cart.php"
 		}).done(function(response) {
-			$('body').append('<div id="cart">'+response+'</div>');
+			$('body').append('<div id="cart"></div>');
+			$('#cart').fadeOut(0).append(response).fadeIn('slow');
 			$('#cart').fadeIn('slow');
 			$('#cart_button').addClass('opened');
 			$('body').css({overflow: 'hidden'});
@@ -355,7 +356,7 @@ $(window).load(function(){
 						if ($("p").is("#login_response")){
 							$('#login_response').remove();
 						}
-						$('#forgetPas_but').prepend('<p id="login_response">' + response + '</p>');
+						$('#forgetPas_but').before('<p id="login_response" style="color:tomato;">' + response + '</p>');
 					}
 					setTimeout(function() {
 						// Done Functions
@@ -372,6 +373,7 @@ $(window).load(function(){
 					url: "php/exit.php"
 				}).done(function(){
 					$('#cart').remove();
+					showCart();
 				});
 			});
 	
@@ -507,12 +509,12 @@ $(window).load(function(){
 				$("#registration input").each(function() {
 					if (!$(this).hasClass("correct") && this.name != "lastname"){
 						validity = false;
-						
+
 					}
 				});
 				
 				if (validity) {
-					alert("otprr");
+					//alert("otprr");
 					var th = $(this);
 					$.ajax({
 						type: "POST",

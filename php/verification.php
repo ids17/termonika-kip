@@ -12,11 +12,11 @@ include 'config.php';
 	$login = $_POST['email'];
 	$password = $_POST['password'];
 	$mdPassword = md5($password);
-	$password2 = $_POST['password2'];
+	//$password2 = $_POST['password2'];
 	$email = $_POST['email'];
 	$rdate = date("d-m-Y в H:i");
 	$name = $_POST['name'];
-	$lastname = $_POST['lastname'];  
+	//$lastname = $_POST['lastname'];  
 	$rating = 1;
 
 
