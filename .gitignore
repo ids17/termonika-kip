@@ -7,3 +7,5 @@
 /php/config.php
 /prepros.cfg
 prepros.cfg
+
+*.cfg
