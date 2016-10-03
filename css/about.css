@@ -140,10 +140,7 @@ section h1, section p {
 
 .automation_title:hover {
   color: #fff;
-  background-color: rgba(255, 255, 255, 0.7);
-  border: 4px solid #00a9eb;
-  height: 63%;
-  width: 76%;
+  border: 4px solid rgba(100, 100, 100, 0.6);
 }
 
 .articles {
