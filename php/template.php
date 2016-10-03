@@ -379,7 +379,7 @@ function map_tree($dataset) {
 					<td><textarea class='comment'>{$value[2]}</textarea></td>
 					<td><input class='cart_item_input cart_item_qty' type='number' size='3' value='{$value[1]}' min='1' max='999' maxlength='3'></td>
 					<td>
-						<button class='delete_button'><i class='fa fa-times' aria-hidden='true'></i></button>
+						<button class='delete_button'><i class='fa fa-trash-o' aria-hidden='true'></i></button>
 
 					</td>
 					<td></td>

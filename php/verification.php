@@ -16,7 +16,7 @@ include 'config.php';
 	$email = $_POST['email'];
 	$rdate = date("d-m-Y в H:i");
 	$name = $_POST['name'];
-	//$lastname = $_POST['lastname'];  
+	$lastname = '';  
 	$rating = 1;
 
 

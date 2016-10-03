@@ -451,70 +451,62 @@ $(window).load(function(){
 				$('#forgetPas_popup').animate({left:'-100%'},'slow');
 			});
 
-
+            
 			//проверка данных на регистрацию
-			$('#registration input').keyup(function() { 
-				var correct = false;
+			$('#cart').on('keyup blur', '#registration input', function() { 
+				//correct = true;
 				switch(this.name) {
 					case "name":
-						if (this.value != "") correct = true; 
-						break;
-					case "lastname":
-						correct = true;
+						if (this.value != ""){
+                            $(this).addClass('correct');
+                            $(this).removeClass('incorrect');
+                        } else{
+                            correct = false;
+                            $(this).addClass('incorrect');
+                            $(this).removeClass('correct');
+                        }
 						break;
 					case "email":
-						if (this.value.match(/^[a-zA-Z0-9_\.\-]+@([a-zA-Z0-9\-]+\.)+[a-zA-Z]{2,}$/)) 
-							correct = true;
+						if (this.value.match(/^[a-zA-Z0-9_\.\-]+@([a-zA-Z0-9\-]+\.)+[a-zA-Z]{2,}$/)) {
+                            $(this).addClass('correct');
+                            $(this).removeClass('incorrect');
+                        }else{
+                            $(this).addClass('incorrect');
+                            $(this).removeClass('correct');
+                        }
 						break;
 					case "password":
 						if (this.value.match(/[A-Za-z0-9]{8,}/)) {
-							correct = true;
-							if ($("#pass2").val() != "") {
-								if ($("#pass2").val() != this.value) {
-									$("#pass2").removeClass("correct");
-									$("#pass2").addClass("incorrect");
-								} else {
-									$("#pass2").removeClass("incorrect");
-									$("#pass2").addClass("correct");
-								}
-							}
+							$(this).addClass('correct');
+                            $(this).removeClass('incorrect');
 						} else {
-							if ($("#pass2").val() != "") {
-								$("#pass2").removeClass("correct");
-								$("#pass2").addClass("incorrect");
-							}
+                            $(this).addClass('incorrect');
+                            $(this).removeClass('correct');
 						}
-						break;
-					case "password2":
-						if (this.value == $("#pass1").val())
-							correct = true;
 						break;
 					default:	
 				}
-				if (correct) {
-					$(this).removeClass("incorrect");
-					$(this).addClass("correct");
-				} else {
-					$(this).removeClass("correct");
-					$(this).addClass("incorrect");
-				}
+                
+//				if (correct) {
+//					$(this).removeClass("incorrect");
+//					$(this).addClass("correct");
+//				} else {
+//					return false;
+//				}
 			});
-			
-			
-			
+            //alert (correct);
+
 			//валидация регистрационных данных и отправка запроса
-			$("#registration_form").submit(function(e) {
+			$("#registration_form").submit(function(correct) {
 
 				var validity = true;
 				$("#registration input").each(function() {
-					if (!$(this).hasClass("correct") && this.name != "lastname"){
+					if (!$(this).hasClass("correct")){
 						validity = false;
-
 					}
 				});
 				
 				if (validity) {
-					//alert("otprr");
 					var th = $(this);
 					$.ajax({
 						type: "POST",
@@ -522,15 +514,18 @@ $(window).load(function(){
 						data: th.serialize()  
 					}).done(function(response) {
 						setTimeout(function() {
+                            //alert(response);
 							if (parseInt(response) === 1) {
 								document.getElementById('reg_response').innerHTML = 
 									'Пользователь с таким e-mail уже существует. Вы можете войти на сайт или восстановить пароль.';
+                                $('#reg_response').css({color: 'tomato'});
 								$('#reg_response').fadeIn('fast');
 								$('#reg_response').addClass('error_message');
 								$('#reg_response').removeClass('success_message');
 							} else if (parseInt(response) === 2) {
 								document.getElementById('reg_response').innerHTML = 
 									'Поздравляем с успешной регистрацией! Теперь можете войти на сайт.';
+                                $('#reg_response').css({color: 'green'});
 								$('#reg_response').fadeIn('fast');
 								$('#reg_response').addClass('success_message');
 								$('#reg_response').removeClass('error_message');
@@ -538,9 +533,8 @@ $(window).load(function(){
 							$('#registration input').css({border: "none"});
 						}, 500);
 					});                  
-				} else {
-					return false;
 				}
+                return false;
 			});
 
 			//E-mail Forget Password
@@ -551,7 +545,7 @@ $(window).load(function(){
 					url: "php/recoverPas.php", 
 					data: th.serialize()
 				}).done(function(response) {
-					$('#forgetPas_popup p').append('<p>'+response+'</p>');
+					$('#forgetPas_popup p').html(response);
 					//document.getElementById('response').innerHTML = "Спасибо за заявку";
 					//$('#response').css('display','block');
 					setTimeout(function() {
@@ -559,6 +553,7 @@ $(window).load(function(){
 						th.trigger("reset");
 					}, 500);
 				});
+                return false;
 			});
 		});
 	}
