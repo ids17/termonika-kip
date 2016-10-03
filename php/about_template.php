@@ -68,6 +68,7 @@
 				</div>
 			</a>
 		</section>
+<!--
 		<section class="articles">
 			<div class="articles_list">
 				<div class="cards">
@@ -95,5 +96,6 @@
 				</div>
 			</div>
 		</section>
+-->
 
 		<script src="libs/onepage-scroll/jquery.onepage-scroll.js"></script>

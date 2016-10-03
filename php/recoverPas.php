@@ -8,7 +8,7 @@ $project_name = "Термоника";
 $admin_email  = "eguzman@yandex";
 $form_subject = "Восстановление пароля";
 
-$expFormat = mktime(date("H"), date("i"), date("s"), date("m")  , date("d")+3, date("Y"));
+$expFormat = mktime(date("H")+1, date("i"), date("s"), date("m")  , date("d")+3, date("Y"));
 $expDate = date("Y-m-d H:i:s",$expFormat);
 $email = $_POST['forgetPas_email'];
 $query = "SELECT id FROM users WHERE login='$email'";
@@ -23,16 +23,17 @@ $recovery_user = mysqli_fetch_array($recovery_user);
 if ($id_user['id']) {
 	$id = $id_user['id'];
 	$flag = 0;
+    $key = md5($email . rand(0,10000) .$expDate);
 	if ($recovery_user['user_id']==$user_id) {
-		$key = $recovery_user['token'];
-		$flag = 1;
+        $query = "UPDATE `recoveryemails` SET `token`='$key', `expDate`='$expDate' WHERE `user_id`=$user_id";
+        //echo $query;
 	}else{
-		$key = md5($email . rand(0,10000) .$expDate);
 		$query = "INSERT INTO recoveryemails (user_id, token, expDate) VALUES ('$id','$key','$expDate')";
-		if(mysqli_query($connection,$query) or die(mysqli_error($connection))){
-			$flag = 1;
-		}
+        //echo $query;
 	}
+    if(mysqli_query($connection,$query) or die(mysqli_error($connection))){
+        $flag = 1;
+    }
 	
 	if ($flag==1) {
 		//$message = "<a href='http://localhost/trm.ru/catalog.php?a=$key'>Перейти по ссылке</a>";
@@ -52,7 +53,8 @@ if ($id_user['id']) {
 		"Content-Type: text/html; charset=utf-8" . PHP_EOL .
 		'From: '.adopt($project_name).' <'.$admin_email.'>' . PHP_EOL .
 		'Reply-To: '.$admin_email."". PHP_EOL;
-
+        
+        //echo $message;
 		mail($email, adopt($form_subject), $message, $headers);
 
 		echo "На ваш e-mail в течение 15 минут придет письмо для восстановления пароля";

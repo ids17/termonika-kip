@@ -253,9 +253,9 @@ function map_tree($dataset) {
 				@$divs .= 
 				"<div class='category_items'>
 					<a href='catalog.php?cat={$node['id']}' class='categoryChose'>
-						<div class='item_img' style='background-image: url(img/category/pic18.gif)'>
-							<!--<img height='100%' src='img/category/pic18.gif' alt=''>-->
-						</div>
+						<!--<div class='item_img' style='background-image: url(img/category/pic18.gif)'>
+							<img height='100%' src='img/category/pic18.gif' alt=''>
+						</div>-->
 						<div class='cat_name'>
 							<p>{$node['daughter']}</p>
 						</div>
