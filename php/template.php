@@ -266,7 +266,7 @@ function map_tree($dataset) {
 			$items_divs = choose_items($items, $cid, $brands);
 			if($items_divs){
 				foreach ($items_divs as $key => $node){
-					$image = explode(',', $node['image']);
+					$image = explode(',', $node['image'], 2);
 					@$divs .= 
 					"<div class='item'>
 						<a href='?item={$node['id']}' class='categoryChose'>

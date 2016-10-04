@@ -294,6 +294,10 @@ body {
   min-width: 194px;
 }
 
+#login_form button {
+  margin: auto;
+}
+
 #forgetPas_popup {
   position: absolute;
   top: 0px;
@@ -322,7 +326,6 @@ body {
   border: none;
   text-transform: uppercase;
   background-color: transparent;
-  margin: auto;
 }
 
 #left_part #registration {

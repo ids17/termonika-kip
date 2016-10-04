@@ -5,22 +5,34 @@ include 'template.php';
 $category = get_categories();
 
 header("Content-type: text/html; charset=utf-8");
-$query = $_POST['query'];
-$query = trim($query);   
-$query = mysqli_real_escape_string($connection, $query);
-$query = htmlspecialchars($query);
+$string = $_POST['query'];
+$string = trim($string);   
+$string = mysqli_real_escape_string($connection, $string);
+$string = htmlspecialchars($string);
 
-if($query == ''){
+if($string == ''){
 	echo "Начните набирать интересующую Вас категорию или название товара...";
 }
 else{
-
+    
+    $search_arr = explode(' ',$string);
+    
+    $where = '';
+    $where2 = '';
+    foreach ($search_arr as $key => $query) {
+    	$where .= " (daughter LIKE '".$query."%' || daughter LIKE '% ".$query."%') &&";
+      $where2 .= " (name LIKE '".$query."%' || name LIKE '% ".$query."%') &&";
+    }
+    $where = substr($where, 0, -3);
+    $where2 = substr($where2, 0, -3);   
+    
 	//сортировка по rating по убыванию
 	function cmp($a, $b){
 		return ($b['rating']-$a['rating']);
 	}
 
-	$q1 = "SELECT daughter, image, id, rating FROM category WHERE daughter LIKE '".$query."%' OR daughter LIKE '% ".$query."%'";
+	//$q1 = "SELECT daughter, image, id, rating FROM category WHERE daughter LIKE '".$query."%' OR daughter LIKE '% ".$query."%'";
+	$q1 = "SELECT daughter, image, id, rating FROM category WHERE".$where;
 	$res1 = mysqli_query($connection,$q1);
 	if(mysqli_num_rows($res1) > 0){
 		//$sql = mysqli_fetch_array($res);
@@ -30,7 +42,8 @@ else{
 		usort($category_search, "cmp");
 	}
 	
-	$q2 = "SELECT name, image, id, rating FROM owen WHERE name LIKE '".$query."%' OR name LIKE '% ".$query."%'";
+	//$q2 = "SELECT name, image, id, rating FROM owen WHERE name LIKE '".$query."%' OR name LIKE '% ".$query."%'";
+	$q2 = "SELECT name, image, id, rating FROM owen WHERE".$where2;
 	$res2 = mysqli_query($connection,$q2);
 	if(mysqli_num_rows($res2) > 0){
 		$sql = mysqli_fetch_array($res2);
@@ -73,9 +86,9 @@ else{
 		}else{
 			$i=0;
 			while($i<5 && @$category_search[$i]){
-				if ($ToF) {
-					echo "<img src='img/category/".$category_search[$i]['image']."' alt='".$category_search[$i]['image']."'>";
-				}
+				// if ($ToF) {
+				// 	echo "<img src='img/category/".$category_search[$i]['image']."' alt='".$category_search[$i]['image']."'>";
+				// }
 				//$string = ;
 				echo "<a href='catalog.php?cat=".$category_search[$i]['id']."'>".$category_search[$i]['daughter']."</a><br>";
 				$i++;
@@ -89,7 +102,8 @@ else{
 			$i=0;
 			while ($i<10 && @$items_search[$i]) {
 				if ($ToF) {
-					echo "<img src='img/items/".$items_search[$i]['image']."' alt='".$items_search[$i]['image']."'>";
+					$image = explode(',', $items_search[$i]['image'], 2);
+					echo "<img height='100px' src='img/items/".$image[0]."' alt='".$image[0]."'>";
 				}
 				echo "<a href='catalog.php?item=".$items_search[$i]['id']."'>".$items_search[$i]['name']."</a></br>";
 				$i++;
