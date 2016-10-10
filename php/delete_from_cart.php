@@ -2,7 +2,7 @@
 require_once 'template.php';
 require_once 'config.php';
 
-$id = substr($_POST['id'], 9);
+$id = $_POST['id'];
 echo $id;
 deleteFromCart($id);
 

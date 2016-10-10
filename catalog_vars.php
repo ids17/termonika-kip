@@ -4,6 +4,8 @@
 	require_once 'php/template.php';
 
 	$items = get_items();
+	$types = getTypes();
+	$modes = getModes();
 	$all_categories = get_categories();
 	//формирование sidebar
 	$category_tree = map_tree($all_categories);

@@ -306,22 +306,47 @@ function map_tree($dataset) {
 	function getItemDescription($iid)
 	{
 		global $items;
-		if(!$items[$iid]['price']){
-			$items[$iid]['price'] = "<button class='button price_button'>Уточнить цену</button>";
+		global $types;
+		global $modes;
+
+		$item = $items[$iid];
+		if(!$item['price']){
+			$item['price'] = "<button class='button price_button'>Уточнить цену</button>";
 		}else{
-			$items[$iid]['price'] = "<h2>".$items[$iid]['price']."</h2>";
+			$item['price'] = "<h2>".$item['price']."</h2>";
 		}
-		if(!$items[$iid]['attrs']){
-			$items[$iid]['modes'] = "<button id='addToCart' class='button button_buy'>В список покупок</button>";
+		if(!$item['attrs']){
+			$item['modes'] = "<button id='addToCart' data-item-id='".$iid."' class='button button_buy'>В список покупок</button>";
+			$item['modes_block'] = "";
 		}else{
-			$items[$iid]['modes'] = "<button class='button button_buy button_modes'>Выбрать модификацию</button>";
+			$types = getTypes();
+			$modes = getModes();
+			$attrs = getItemAttrs($item['attrs']);
+			//$item['attrs_arr'] = $attrs;
+			$table_ths = '';
+			$modes_cols = '';
+			foreach ($attrs as $attr) {
+				$table_ths .= '<th data-type-id="'.$attr[0].'" data-type-seq="'.$attr[2].'">'.$types[$attr[0]]['name'].'</th>';
+				$modes_cols .= '<td><div class="modes_col" data-type-id="'.$attr[0].'"><form>';
+				foreach ($attr[1] as $mode) {
+					$modes_cols .= '<div class="mode_block"><input name="'.$types[$attr[0]]['name'].'" value="'.$mode.'_'.$attr[2].'"class="choose_mode" data-type-id="'.$attr[0].'" data-type-seq="'.$attr[2].'" data-mode-id="'.$mode.'" type="radio"/><label>'.$modes[$mode]['name'].'</label></div>';
+				}
+				$modes_cols .= '</form></div></td>';
+			}
+			//$item['attrs'] = 
+			$item['attrs'] = '<div class="choose_modification" style="display:none;"><table class="table table-striped"><thead>
+		<tr>'.$table_ths.'</tr></thead><tbody><tr>'.$modes_cols.'</tr></tbody></table><button id="addToCart" data-item-id="'.$iid.'" class="button button_buy buy_mode">В список покупок</button></div>';
+;
+
+			$item['modes'] = "<button class='button button_buy button_modes'>Выбрать модификацию</button>";
+			$item['modes_block'] = "";
 		}
 
 
-		$docs_text = explode('||', $items[$iid]['docs_text']);
-		$docs_file = explode(',', $items[$iid]['docs_filename']);
+		$docs_text = explode('||', $item['docs_text']);
+		$docs_file = explode(',', $item['docs_filename']);
 
-		$img_arr = explode(',', $items[$iid]['image']);
+		$img_arr = explode(',', $item['image']);
 		array_pop($img_arr);
 		//print_arr($img_arr);
 
@@ -339,7 +364,7 @@ function map_tree($dataset) {
 		foreach ($docs_text as $key => $value) {
 			@$docs .= '<a href="'.$docs_file[$key].'">'.$value.'</a><br>';
 		}
-		$full_item_info['$items'] = $items;
+		$full_item_info['$item'] = $item;
 		$full_item_info['$photos'] = $photos;
 		$full_item_info['$thumbs'] = $thumbs;
 		$full_item_info['$docs'] = $docs;
@@ -352,6 +377,8 @@ function map_tree($dataset) {
     //код отображения корзины
 	function show_cart($items, $login_status)
 	{
+		global $types;
+		global $modes;
 		global $connection;
 		if (!empty($_COOKIE['login']))
 		{
@@ -369,17 +396,27 @@ function map_tree($dataset) {
 				<div class="out_next">';	
 		
 		if(isset($arr_cart[0][0])){
+
 			$cart_code .= "<table id='cart_table' class='cart_table'>";
 			foreach ($arr_cart as $key => $value) {
-				$image = explode(',', $items[$value[0]]['image']);
+				$mode_arr = mode_to_arr($value[0]);
+				$mode_name = '';
+				if (isset($mode_arr[1])) {
+					foreach ($mode_arr[1] as $id => $attr) {
+						$mode_name .= $types[$attr[0]]['name'] .': ' . $modes[$attr[1]]['name'] . ', ';
+					}
+					$mode_name = substr($mode_name, 0, -2);	
+				}
+				//$mode_name = getModeName($layout, );
+				$image = explode(',', $items[$mode_arr[0]]['image']);
 				$cart_code .= "	
 				<tr class='cart_item' id='cart_item{$value[0]}'>
-					<td><a href='catalog.php?item={$value[0]}'><div class='cart_item_img' style='background-image: url(\"img/items/{$image[0]}\");' alt='{$image[0]}'></div></a></td>
-					<td><a href='catalog.php?item={$value[0]}'>{$items[$value[0]]['name']}</a></td>
-					<td><textarea class='comment'>{$value[2]}</textarea></td>
+					<td><a href='catalog.php?item={$mode_arr[0]}'><div class='cart_item_img' style='background-image: url(\"img/items/{$image[0]}\");' alt='{$image[0]}'></div></a></td>
+					<td><a href='catalog.php?item={$mode_arr[0]}'>{$items[$mode_arr[0]]['name']}</a><p>{$mode_name}</p></td>
+					<td><textarea class='comment' style='resize:none;'>{$value[2]}</textarea></td>
 					<td><input class='cart_item_input cart_item_qty' type='number' size='3' value='{$value[1]}' min='1' max='999' maxlength='3'></td>
 					<td>
-						<button class='delete_button'><i class='fa fa-trash-o' aria-hidden='true'></i></button>
+						<button class='delete_button' data-item-id='".$value[0]."'><i class='fa fa-trash-o' aria-hidden='true'></i></button>
 
 					</td>
 					<td></td>
@@ -391,8 +428,7 @@ function map_tree($dataset) {
 				<i></i>
 				<h4>Продолжить</h4>
 				</div>";
-	}
-	else
+	}else
 		$cart_code .= "<p>Список пуст</p></div>";
 	$cart_code .= '</div></div>';
 	return $cart_code;
@@ -403,7 +439,8 @@ function cart_to_arr($cart){
 	if (empty($cart)) return $empty;
 	$cart_arr = explode ("`||`", $cart);
 	foreach ($cart_arr as $key => $value) {
-		$arr_cart[$key] = explode(" ", $cart_arr[$key], 3);
+		$arr_cart[$key] = explode("-", $cart_arr[$key], 3);
+		//$arr_cart[$key][0] = mode_to_arr($arr_cart[$key][0]);
 		if (count($arr_cart[$key]) == 2) $arr_cart[$key][2] = "";
 	}
 	return $arr_cart;
@@ -411,11 +448,31 @@ function cart_to_arr($cart){
 
 function cart_to_str($cart){
 	$str = "";
-	foreach ($cart as $key => $value)
-		$str .= $value[0] . ' ' . $value[1] . ' ' . $value[2] . '`||`';
+	foreach ($cart as $key => $value){
+		//$value[0] = mode_to_str($value[0]);
+		$str .= $value[0] . '-' . $value[1] . '-' . $value[2] . '`||`';
+	}
 	if (!empty($str))
 		$str = substr($str, 0, -4);
 	return $str;
+}
+
+function mode_to_arr($str){
+	$mode_arr = explode(':', $str);
+	//echo $mode_arr;
+	// здесь проверять есть ли модификации или нет
+	if (isset($mode_arr[1])) {
+		$mode_arr[1] = explode(',', $mode_arr[1]);	
+		foreach ($mode_arr[1] as $key => $value) {
+			$mode_arr[1][$key] = explode('|', $mode_arr[1][$key]);
+		}
+	}
+	return $mode_arr;
+}
+
+function mode_to_str($arr){
+	$str = "";
+	return $arr;
 }
 
 		//получение корзины пользователя в виде строки из БД
@@ -427,10 +484,18 @@ function cart_to_str($cart){
 		$cart = mysqli_fetch_assoc($res);
 		return $cart['cart'];
 	}
+	//изменение корзины пользователя в БД
+	function setUserCart($user_id, $str)
+	{
+		global $connection;
+		$query = "UPDATE users SET cart = '{$str}' WHERE id = {$user_id}";
+		$res = mysqli_query($connection, $query);
+	}
 
 	//Добавление товара в корзину
-	function addIntoCart($id)
-	{
+	function addIntoCart($id){
+		
+
 		if (isset($_COOKIE['login'])) {
 			$arr_cart = cart_to_arr(getUserCart($_COOKIE['id']));
 		}
@@ -460,14 +525,6 @@ function cart_to_str($cart){
 		else $_SESSION['cart'] = $str;
 	}
 
-	//изменение корзины пользователя в БД
-	function setUserCart($user_id, $str)
-	{
-		global $connection;
-		$query = "UPDATE users SET cart = '{$str}' WHERE id = {$user_id}";
-		$res = mysqli_query($connection, $query);
-	}
-
 	//удаление товара из корзины
 	function deleteFromCart($item_id)
 	{
@@ -478,6 +535,7 @@ function cart_to_str($cart){
 			if ($node[0] == $item_id)
 				unset($arr_cart[$key]);
 		$str = cart_to_str($arr_cart);
+		
 		if (isset($_COOKIE['login'])) setUserCart($_COOKIE['id'], $str);
 		else $_SESSION['cart'] = $str;
 	}
@@ -502,9 +560,6 @@ function cart_to_str($cart){
 		if (isset($_COOKIE['login'])) $arr_cart = cart_to_arr(getUserCart($_COOKIE['id']));
 		else $arr_cart = cart_to_arr($_SESSION['cart']);
 
-
-
-
 		foreach($arr_cart as $key => $node)
 			if ($node[0] == $item_id) $arr_cart[$key][2] = $comment;
 		$str = cart_to_str($arr_cart);
@@ -522,3 +577,69 @@ function cart_to_str($cart){
 			$arr_cat[$row[$col]] = $row;
 		return $arr_cat;
 	}
+
+	//функции для работы с модификациями товаров
+	//получить из строки attrs массив атрибутов и их значений
+function getItemAttrs($attrs){
+	$attrs_arr = explode(';', $attrs);
+	if (end($attrs_arr)=='') {
+		array_pop($attrs_arr);
+	}	
+	$temp = [];
+	foreach ($attrs_arr as $key => $value) {
+		$attrs_arr[$key] = explode('|', $value, 2);
+		$attrs_arr[$key][1] = trim($attrs_arr[$key][1]);
+		if (in_array($attrs_arr[$key][0], array_column($temp, 0))) {
+			$temp[$attrs_arr[$key][0]][1] += 1;
+		}else{
+			$temp[$attrs_arr[$key][0]] = [$attrs_arr[$key][0], 1];
+		}
+
+		$attrs_arr[$key][2] = $temp[$attrs_arr[$key][0]][1];
+
+		if (!isset($attrs_arr[$key][1])) {
+			# code...
+		}elseif (end($attrs_arr[$key])=='') {
+			array_pop($attrs_arr[$key]);
+			$attrs_arr[$key][] = [];
+		}	else{
+			$attrs_arr[$key][1] = explode(' ', $attrs_arr[$key][1]);
+		}
+	}
+	//print_arr($attrs_arr); 
+	//print_arr($attrs_arr);
+	return $attrs_arr;
+}
+function attrs_to_str($arr){
+	$str = '';
+	foreach ($arr as $key => $value) {
+		$temp = [$value[0], implode(' ', $value[1])];
+		$str .= implode('|', $temp).';';
+	}
+	return $str;
+}
+//получение массива типов модификаций
+function getTypes(){
+	global $connection;
+	$query = "SELECT * FROM chooses_types";
+	$res = mysqli_query($connection, $query);
+	$arr_items = array();
+	while($row = mysqli_fetch_assoc($res))
+		$arr_items[$row['id']] = $row;
+	return $arr_items;
+}
+
+//получение массива модификаций
+function getModes(){
+	global $connection;
+	$query = "SELECT * FROM chooses";
+	$res = mysqli_query($connection, $query);
+	$arr_items = array();
+	while($row = mysqli_fetch_assoc($res))
+		$arr_items[$row['id']] = $row;
+	return $arr_items;
+}
+
+
+
+

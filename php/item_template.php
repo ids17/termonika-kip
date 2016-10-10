@@ -1,6 +1,6 @@
 <div>
 	<h1 class='items_name'>
-		<?=$message['$items'][$message['$iid']]['name'];?>
+		<?=$message['$item']['name'];?>
 	</h1>
 	<hr>
 </div>
@@ -8,18 +8,19 @@
 	<div class='main_info'>
 		<div class="buttons_div">
 			<div class='flex_row'>
-				<?=$message['$items'][$message['$iid']]['price'];?>
-				<?=$message['$items'][$message['$iid']]['modes'];?>
+				<?=$message['$item']['price'];?>
+				<?=$message['$item']['modes'];?>
 			</div>
-
+		
 			<div class=''>
-				<button class='button question_button'><i class="fa fa-question" aria-hidden="true"></i>
-Задать вопрос</button>
+				<button class='button question_button'><i class="fa fa-question" aria-hidden="true"></i>Задать вопрос</button>
+				<!-- <?php print_arr($message['$item']['attrs_arr']);?> -->
+				<?=$message['$item']['attrs'];?>
 			</div>
 		</div>
 		
 		<div class='short_info'>
-			<?=$message['$items'][$message['$iid']]['descr'];?>
+			<?=$message['$item']['descr'];?>
 			<!--<img src='img/oven.png' alt=''><img src='img/proma.png' alt=''>-->
 		</div>
 	</div>
@@ -44,12 +45,12 @@
 			<div class='tab-content responsive hidden-xs hidden-sm'>
 				<div id='description' class='tab-pane'>
 					<div class='user-content'>
-						<?=$message['$items'][$message['$iid']]['description'];?>
+						<?=$message['$item']['description'];?>
 					</div>
 				</div>
 				<div id='specifications' class='tab-pane'>
 					<div class='user-content'>
-						<?=$message['$items'][$message['$iid']]['specifications'];?>
+						<?=$message['$item']['specifications'];?>
 					</div>
 				</div>
 				<div id='application' class='tab-pane'>

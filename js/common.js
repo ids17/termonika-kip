@@ -390,23 +390,25 @@ $(window).load(function(){
 			});
 				
 			//удаление товара из корзины
-			$('.delete_button').click(function(){;
+			$('.delete_button').click(function(){
 				$.ajax({
 					type: "POST",
 					url: "php/delete_from_cart.php",
 					data: {
-						id: $(this).parents().parents().attr('id')
+						id: $(this).data('item-id')
 					}
 				}).done(function(response){
-					$('#cart_item' + response).fadeOut('slow');
-					setTimeout(function() {
-						$('#cart_item' + response).remove();
-						if(!$("tr").is(".cart_item")){
-							$('#next_step1').remove();
-							$('.out_next').append('<p>Список пуст</p>')
-						}	
-					}, 400);
+		
 				});
+				var del_item = $(this).parent().parent();
+				del_item.fadeOut('slow');
+				setTimeout(function() {
+					del_item.remove();
+					if(!$("tr").is(".cart_item")){
+						$('#next_step1').remove();
+						$('.out_next').append('<p>Список пуст</p>')
+					}	
+				}, 400);
 			});
 				
 			//изменение количества товара
@@ -561,13 +563,32 @@ $(window).load(function(){
 	
 	//добавление в корзину
 	$('#addToCart').click(function() {
+
+		var choosen_mode = '';
+
+		if ($(this).hasClass('buy_mode')) {
+			$(this).prev().find('.modes_col').each(function(){
+				//находим выбранные моды, формируем строку type-id|mode_id,...
+				choosen_mode += $(this).data('type-id') + '|';
+				$(this).find('.checked').each(function(){
+					choosen_mode += $(this).children('.choose_mode').data('mode-id') + ',';
+					return;
+				});
+			});
+		}
+		choosen_mode = choosen_mode.slice(0,-1);
+		//alert(choosen_mode);
+		var id = $(this).data('item-id');
+
 		$.ajax({
 			type: "POST",
 			url: "php/add_to_cart.php", 
 			data: {
-	        	id: window.location.search
+	        	id: id,
+	        	choosen_mode: choosen_mode 
 	        }
 		}).done(function(response) {
+			//alert(response);
 			$('#addToCart').addClass('successButton');
 			document.getElementById('addToCart').innerHTML = 'Добавлено';
 			setTimeout(function() {
@@ -580,31 +601,37 @@ $(window).load(function(){
 
 	//выбор модификаций
 	$('.button_modes').click(function(){
-		$.ajax({
-			type: "POST",
-			url: "php/get_modes.php", 
-			data: {
-				id: window.location.search
-			}
-		}).done(function(response) {
-			$('body').prepend(response);
-			$('#full_modes').fadeIn('slow').css({display: 'flex'});
-			$('body').css({overflowY: 'hidden'});
-			$('#full_modes').css({top: $('#breadcrumbs').position().top});
-			$('#close_modes, #full_modes').click(function() {
-				$('#full_modes').fadeOut('slow');
-				$('body').css({overflowY: 'visible'});
-				setTimeout(function() {
-					$('#full_modes').remove();
-				}, 1000);
-			});
-				
-			//добавление в корзину
-			$('.choose_mode').click(function() {
-				//TODO
-			});
+
+		$('.choose_modification').fadeToggle('slow');
+		$('.table-striped').find('.modes_col').each(function(){
+			$(this).find('.mode_block:first-child').find('.choose_mode').iCheck('check');
 		});
-	})
+
+		// $.ajax({
+		// 	type: "POST",
+		// 	url: "php/get_modes.php", 
+		// 	data: {
+		// 		id: window.location.search
+		// 	}
+		// }).done(function(response) {
+		// 	$('body').prepend(response);
+		// 	$('#full_modes').fadeIn('slow').css({display: 'flex'});
+		// 	$('body').css({overflowY: 'hidden'});
+		// 	$('#full_modes').css({top: $('#breadcrumbs').position().top});
+		// 	$('#close_modes, #full_modes').click(function() {
+		// 		$('#full_modes').fadeOut('slow');
+		// 		$('body').css({overflowY: 'visible'});
+		// 		setTimeout(function() {
+		// 			$('#full_modes').remove();
+		// 		}, 1000);
+		// 	});
+				
+		// 	//добавление в корзину
+		// 	$('.choose_mode').click(function() {
+		// 		//TODO
+		// 	});
+		// });
+	});
 
 
 	//корректировка работы xfade в items
@@ -617,17 +644,6 @@ $(window).load(function(){
 	//});
 	//alert(tops);
 
-
-	//попытки наладить работу nav tabs
-	$('.nav_li > a').click(function(){
-		//var field = document.getElementById('full_info');
-		//var tops = field.getBoundingClientRect().top;
-		//alert(tops);
-		//window.scrollBy(0,-tops);
-		//var field = document.getElementById('full_info');
-		//var tops = field.getBoundingClientRect().top;
-		//alert(tops);
-	});
 
 	//параллакс в статьях
 	$('#article').scroll(function() {

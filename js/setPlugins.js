@@ -10,7 +10,7 @@ $(document).ready(function(){
 
 	//чекбоксы
   
-	$('input.filter_item').each(function(){
+	$('input.filter_item, input.choose_mode').each(function(){
 		var self = $(this),
 		label = self.next(),
 		label_text = label.text();
