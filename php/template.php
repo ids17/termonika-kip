@@ -311,7 +311,7 @@ function map_tree($dataset) {
 
 		$item = $items[$iid];
 		if(!$item['price']){
-			$item['price'] = "<button class='button price_button'>Уточнить цену</button>";
+			$item['price'] = "<button class='button price_button modal-trigger' data-target='know-price'>Уточнить цену</button>";
 		}else{
 			$item['price'] = "<h2>".$item['price']."</h2>";
 		}
@@ -319,8 +319,6 @@ function map_tree($dataset) {
 			$item['modes'] = "<button id='addToCart' data-item-id='".$iid."' class='button button_buy'>В список покупок</button>";
 			$item['modes_block'] = "";
 		}else{
-			$types = getTypes();
-			$modes = getModes();
 			$attrs = getItemAttrs($item['attrs']);
 			//$item['attrs_arr'] = $attrs;
 			$table_ths = '';

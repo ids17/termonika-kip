@@ -1,4 +1,4 @@
-$('.preloader').css('display','block');
+// $('.preloader').css('display','block');
 
 $(window).load(function(){
 

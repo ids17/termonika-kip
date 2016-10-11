@@ -17,6 +17,25 @@
 	<link rel="stylesheet" href="css/media.css">
 	<link rel="stylesheet" href="libs/magnific-popup/magnific-popup.css">
 	<link rel="stylesheet" href="libs/fontawesome/css/font-awesome.min.css">
+
+	<script src="js/queryloader2.min.js"></script>
+
+        <!-- =========================
+Preloader
+============================== -->
+<script>
+    window.addEventListener('DOMContentLoaded', function() {
+        "use strict";
+        new QueryLoader2(document.querySelector("body"), {
+            barColor: "#00a9eb",
+            backgroundColor: "#111",
+            percentage: true,
+            barHeight: 1,
+            minimumTime: 200,
+            fadeOutTime: 1000
+        });
+    });
+</script>
 </head>
 <body>
 	<div class="container-fluid">

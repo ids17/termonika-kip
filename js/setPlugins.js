@@ -1,9 +1,13 @@
 $(document).ready(function(){
-  $('a:not(.nav_li a)').click(function(){
-    $('.wrapper').loader('show','<i class="fa fa-4x fa-spinner fa-spin"></i>');
-    $('body').css({overflow: 'hidden'});
-    $('.loader').animate('background-color','rgba(255,255,255,0.5)');
-  })
+
+    // $('.wrapper').loader('show','<i class="fa fa-4x fa-spinner fa-spin"></i>');
+    // $('body').css({overflow: 'hidden'});
+    // $('.loader').animate('background-color','rgba(255,255,255,0.5)');
+ //      $('body').css({overflowY: 'visible'});
+ // // setTimeout(function() {
+  
+ //  $('.wrapper').loader('hide');
+ //  //}, 1000);
   
 
 	$('.accordeon').dcAccordion();
@@ -23,6 +27,17 @@ $(document).ready(function(){
 		});
 	});
   
+  $('.modal-trigger').leanModal({
+      dismissible: true, // Modal can be dismissed by clicking outside of the modal
+      opacity: .5, // Opacity of modal background
+      in_duration: 300, // Transition in duration
+      out_duration: 200, // Transition out duration
+      starting_top: '4%', // Starting top style attribute
+      ending_top: '10%', // Ending top style attribute
+      //ready: function() { alert('Ready'); }, // Callback for Modal open
+      //complete: function() { alert('Closed'); } // Callback for Modal close
+    }
+  );
 
   if(window.location.pathname.indexOf("/about.php") >= 0 || window.location.pathname.indexOf("/automation.php") >= 0){
     $("#content").onepage_scroll({
@@ -72,10 +87,6 @@ bindThumbnails();
 });
 
 $(window).load(function(){
-  $('body').css({overflowY: 'visible'});
- // setTimeout(function() {
   
-  $('.wrapper').loader('hide');
-  //}, 1000);  
 });
 
