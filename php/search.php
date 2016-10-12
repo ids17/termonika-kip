@@ -73,11 +73,14 @@ else{
 					<input type="text" name="email" required autocomplete="off"/>
 					<label data-content="Ваш e-mail">Ваш e-mail</label>
 				</div>
-			<textarea name="question" rows="5" cols="45" wrap="soft" placeholder="Расскажите, что Вам нужно" required="true"></textarea>
+			<div class="input-field">
+          <textarea id="textarea-in-form3" class="materialize-textarea textarea-in-form" name="question" value=""></textarea>
+          <label class="textarea_label" for="textarea-in-form3">Расскажите, что Вам нужно</label>
+       </div>
 			<button> 
 				<p>Отправить заявку</p>
 			</button>
-			<p id="response"></p>
+			<p class="response"></p>
 		</form>';
 	}else{
 		echo "<h3>Категории</h3>";

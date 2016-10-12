@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="css/items.css">
 <link rel="stylesheet" href="css/catalog.css">
 <link rel="stylesheet" href="libs/icheck-1.x/skins/line/blue.css">
+<link rel="stylesheet" href="libs/icheck-1.x/skins/square/blue.css">
 <div id="sidebar">
 	<?=$message[0];?>
 </div>

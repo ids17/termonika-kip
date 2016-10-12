@@ -149,7 +149,7 @@ $(function() {
 	<script src="libs/jq.cookie/jquery.cookie.js"></script>
 	<script src="libs/materialize-src/js/bin/materialize.min.js"></script>
 	<script src="libs/enllax.js-master/jquery.enllax.min.js"></script>
-	<script src="libs/xfade/jquery.xfade-1.0.min.js"></script>
+	<!-- <script src="libs/xfade/jquery.xfade-1.0.min.js"></script> -->
 	<script src="libs/Center-Loader/center-loader.min.js"></script>
 	<!--<script src="libs/parallax.js-master/parallax.min.js"></script>-->
 	<!-- <script src="js/imagezoom.js"></script> -->

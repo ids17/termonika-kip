@@ -78,6 +78,7 @@
 				</div>
 				
 				<button>Отправить</button>
+				<p class="response"></p>
 			</form>		
 		</div>
 	</div>

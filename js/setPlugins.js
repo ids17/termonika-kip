@@ -19,7 +19,7 @@ $(document).ready(function(){
 
 	//чекбоксы
 
-	$('input.filter_item, input.choose_mode').each(function(){
+	$('input.filter_item').each(function(){
 		var self = $(this),
 		label = self.next(),
 		label_text = label.text();
@@ -31,6 +31,19 @@ $(document).ready(function(){
 			insert: '<div class="icheck_line-icon"></div>' + label_text
 		});
 	});
+
+  // $('input.choose_mode').each(function(){
+  //   var self = $(this),
+  //   label = self.next(),
+  //   label_text = label.text();
+
+  //   label.remove();
+  //   self.iCheck({
+  //     checkboxClass: 'icheckbox_square-blue',
+  //     radioClass: 'iradio_square-blue',
+  //     insert: '<div class="icheck_square-icon"></div>' + label_text
+  //   });
+  // });
 
   $('.modal-trigger').leanModal({
       dismissible: true, // Modal can be dismissed by clicking outside of the modal
@@ -65,6 +78,13 @@ $(document).ready(function(){
       direction: "vertical"            // You can now define the direction of the One Page Scroll animation. Options available are "vertical" and "horizontal". The default value is "vertical".  
       });
     }else{
+      if (window.location.pathname.indexOf("/catalog.php") >= 0) {
+        $('input.choose_mode').iCheck({
+        checkboxClass: 'icheckbox_square-blue',
+        radioClass: 'iradio_square-blue',
+        increaseArea: '20%' // optional
+        });
+      }
       $('body').css({overflow: 'visible'});
       $('html').css({overflow: 'visible'});
     }

@@ -20,6 +20,8 @@ $accent_color: #00a9eb
 	margin: 20px auto
 	display: block
 
+.price_button
+	background-color: #c4c4c4 !important
 .button_buy, .price_button
 	border: none
 	background-color: $accent_color
@@ -34,7 +36,7 @@ $accent_color: #00a9eb
 	height: 36px
 	line-height: 36px
 	outline: 0
-	padding: 0 2rem
+	padding: 0 20px
 	text-transform: uppercase
 	vertical-align: middle
 	-webkit-tap-highlight-color: transparent
@@ -57,6 +59,8 @@ $accent_color: #00a9eb
 	z-index: 1
 	will-change: opacity, transform
 	transition: all .3s ease-out
+	i
+		color: #fff
 
 .button_buy:hover, .price_button:hover
 	background-color: $accent_color
@@ -140,3 +144,11 @@ $accent_color: #00a9eb
 		align-items: center
 		>*
 			margin: 10px auto !important
+
+.mode_block label
+	padding-left: 16px
+.buy_mode
+	margin: auto
+	display: block
+.modesAreActive, .modesAreActive:hover
+	background-color: tomato

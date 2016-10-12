@@ -270,7 +270,7 @@ function map_tree($dataset) {
 					@$divs .= 
 					"<div class='item'>
 						<a href='?item={$node['id']}' class='categoryChose'>
-							<div class='item_img' style='background-image: url(img/items/{$image[0]})'>
+							<div class='item_img' style='background-image: url(\"img/items/{$image[0]}\")'>
 								<!--<img src='img/items/{$image[0]}' alt=''>-->
 							</div>
 							<div class='item_title'>
@@ -287,11 +287,14 @@ function map_tree($dataset) {
 			<input type="hidden" name="form_subject" value="Запрос товара">
 			<input type="text" name="name" placeholder="Представьтесь, пожалуйста" required="true">
 			<input type="text" name="email" placeholder="Ваш e-mail" required="true">
-			<textarea name="question" rows="5" cols="45" wrap="soft" placeholder="Расскажите, что Вам нужно" required="true"></textarea>
+			<div class="input-field">
+          <textarea id="textarea-in-form2" class="materialize-textarea textarea-in-form" name="question" value=""></textarea>
+          <label class="textarea_label" for="textarea-in-form2">Расскажите, что Вам нужно</label>
+       </div>
 			<button> 
 				<p>Отправить заявку</p>
 			</button>
-			<p id="response"></p>
+			<p class="response"></p>
 		</form>';
 				//форма запроса товара
 			}
@@ -311,12 +314,13 @@ function map_tree($dataset) {
 
 		$item = $items[$iid];
 		if(!$item['price']){
-			$item['price'] = "<button class='button price_button modal-trigger' data-target='know-price'>Уточнить цену</button>";
+			$item['price'] = "<button class='button price_button modal-trigger' data-target='know-price'><i class='fa fa-rub' aria-hidden='true'></i> Цена</button>";
 		}else{
-			$item['price'] = "<h2>".$item['price']."</h2>";
+			$item['price'] = "<h2><i class='fa fa-rub' aria-hidden='true'></i> ".$item['price']."</h2>";
 		}
 		if(!$item['attrs']){
-			$item['modes'] = "<button id='addToCart' data-item-id='".$iid."' class='button button_buy'>В список покупок</button>";
+			$item['modes'] = "<button id='addToCart' data-item-id='".$iid."' class='button button_buy'><i class='fa fa-cart-plus' aria-hidden='true'></i>
+ В корзину</button>";
 			$item['modes_block'] = "";
 		}else{
 			$attrs = getItemAttrs($item['attrs']);
@@ -333,10 +337,10 @@ function map_tree($dataset) {
 			}
 			//$item['attrs'] = 
 			$item['attrs'] = '<div class="choose_modification" style="display:none;"><table class="table table-striped"><thead>
-		<tr>'.$table_ths.'</tr></thead><tbody><tr>'.$modes_cols.'</tr></tbody></table><button id="addToCart" data-item-id="'.$iid.'" class="button button_buy buy_mode">В список покупок</button></div>';
+		<tr>'.$table_ths.'</tr></thead><tbody><tr>'.$modes_cols.'</tr></tbody></table><button id="addToCart" data-item-id="'.$iid.'" class="button button_buy buy_mode"><i class="fa fa-cart-plus" aria-hidden="true"></i> В корзину</button></div>';
 ;
 
-			$item['modes'] = "<button class='button button_buy button_modes'>Выбрать модификацию</button>";
+			$item['modes'] = "<button class='button button_buy button_modes'><i class='fa fa-list-ul' aria-hidden='true'></i> Выбрать модификацию</button>";
 			$item['modes_block'] = "";
 		}
 

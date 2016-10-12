@@ -13,7 +13,7 @@
 			</div>
 
 			<div class=''>
-				<button class='button question_button modal-trigger' data-target='ask-question'><i class="fa fa-question" aria-hidden="true"></i>Задать вопрос</button>
+				<button class='button question_button modal-trigger' data-target='ask-question'><i class="fa fa-question" aria-hidden="true"></i> Задать вопрос</button>
 				<!-- <?php print_arr($message['$item']['attrs_arr']);?> -->
 				<?=$message['$item']['attrs'];?>
 			</div>
@@ -87,7 +87,7 @@
 			<button> 
 				<p>Отправить заявку</p>
 			</button>
-			<p id="response"></p>
+			<p class="response"></p>
 		</form>
 	</div>
 
@@ -109,11 +109,15 @@
 				<input type="text" name="email" required autocomplete="off"/>
 				<label data-content="Ваш e-mail">Ваш e-mail</label>
 			</div>
-			<textarea name="question" rows="5" cols="45" wrap="soft" placeholder="Ваш вопрос" required="true"></textarea>
+			<!-- <textarea name="question" rows="5" cols="45" wrap="soft" placeholder="Ваш вопрос" required="true"></textarea> -->
+			<div class="input-field">
+          <textarea id="textarea-in-form" class="materialize-textarea textarea-in-form" name="question" value=""></textarea>
+          <label class="textarea_label" for="textarea-in-form">Ваш вопрос</label>
+       </div>
 			<button> 
 				<p>Отправить заявку</p>
 			</button>
-			<p id="response"></p>
+			<p class="response"></p>
 		</form>
 	</div>
 </div>
