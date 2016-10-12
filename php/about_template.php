@@ -59,6 +59,7 @@
 			</div>
 		</section>
 		<section class="automation">
+			<div class="overlay_bg" style="background-color: rgba(231,231,231,.4); display: none;"></div>
 			<a href="automation.php" class="automation_title">
 				<div>
 					<h1>Разработка систем автоматизации</h1>

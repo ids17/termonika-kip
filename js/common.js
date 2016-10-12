@@ -7,7 +7,6 @@ $(window).load(function(){
 		|| window.location.pathname.indexOf("/automation.php") >= 0 
 		|| window.location.pathname.indexOf("/articles.php") >= 0)
 	{
-		$('body').css({overflow: "hidden"});
 		$('#footer').css('display','none');
 		$('#top_bar').css({top: '0', position: 'fixed',zIndex: '899',background: 'rgba(231,231,231,.9)'});
 		$('#fixed_top_bar').css({top: '60px', position: 'fixed',background: 'rgba(255,255,255,.8)'});
@@ -15,6 +14,10 @@ $(window).load(function(){
 		var ftbH = $('#fixed_top_bar').innerHeight();
 		$('.contacts').css({paddingTop: tbH + ftbH});
 		$('.big_map').css({paddingTop: tbH + ftbH});
+		if (window.location.pathname.indexOf("/contacts.php") >= 0 
+		|| window.location.pathname.indexOf("/articles.php") >= 0){
+			$('body').css({overflow: "hidden"});
+		}	
 	}
 
 	if (window.location.pathname.indexOf("/catalog.php") >= 0) {
@@ -591,6 +594,13 @@ $(window).load(function(){
 			//alert(response);
 			$('#addToCart').addClass('successButton');
 			document.getElementById('addToCart').innerHTML = 'Добавлено';
+
+ 			$('#cart_button').trigger('startRumble');
+
+ 			setTimeout(function(){
+ 				 $('#cart_button').trigger('stopRumble');
+ 			}, 1000);
+
 			setTimeout(function() {
 				$('#addToCart').removeClass('successButton');
 				document.getElementById('addToCart').innerHTML = 'В список покупок';
@@ -603,9 +613,9 @@ $(window).load(function(){
 	$('.button_modes').click(function(){
 
 		$('.choose_modification').fadeToggle('slow');
-		$('.table-striped').find('.modes_col').each(function(){
-			$(this).find('.mode_block:first-child').find('.choose_mode').iCheck('check');
-		});
+		// $('.table-striped').find('.modes_col').each(function(){
+		// 	$(this).find('.mode_block:first-child').find('.choose_mode').iCheck('check');
+		// });
 
 		// $.ajax({
 		// 	type: "POST",
@@ -654,5 +664,14 @@ $(window).load(function(){
 			"transform" : "translate(0%, " + -st/10 + "%)"
 		});
 	});
+
+		//анимация секции automation в about
+		$('.automation_title').hover(function(){
+			$(this).css({backgroundColor: 'rgba(100, 100, 100, 0.6)'});
+			$(this).prev().css({height: '100%'}).fadeIn('slow');
+		},function(){
+			$(this).css({backgroundColor: 'rgba(255, 255, 255, 0.6)'});
+			$(this).prev().fadeOut('slow');
+		});
 
 });

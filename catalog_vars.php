@@ -23,13 +23,16 @@
 
 	if(isset($_GET['cat'])/*или просто catalog.php*/) {
 		$cid = (int) $_GET['cat'];
+		$page_title = $all_categories[$cid]['daughter'];
 		$breadcrumbs = breadcrumbs_str($all_categories, 0, $cid);
 		$divs = getNavigationDivs($all_categories, $items, $cid, $brands_ses);
 	}elseif (isset($_GET['item'])) {
 		$iid = (int) $_GET['item'];
+		$page_title = $items[$iid]['name'];
 		$divs = getItemDescription($iid);
 		$breadcrumbs = breadcrumbs_str($all_categories, $items[$iid]['name'], $items[$iid]['parent_id']);
 	}else{
+		$page_title = 'Каталог';
 		$cid = 0;
 		$breadcrumbs = breadcrumbs_str($all_categories, 0, $cid);
 		$divs = getNavigationDivs($all_categories, $items, $cid, $brands_ses);

@@ -27,7 +27,6 @@
 	<div class='img_info'>
 		<div id='img_set'>
 			<?=$message['$photos'];?>
-			<?=$message['$thumbs'];?>
 		</div>
 	</div>
 </div>
@@ -71,7 +70,8 @@
 <!-- Modal Structure -->
 <div id="know-price" class="modal bottom-sheet">
 	<div class="modal-content">
-		<p class="empty_search">Укажите необходимую модификацию, и мы пришлем Вам цену.</p>
+		<h4>Укажите необходимую модификацию, и мы пришлем Вам цену и сроки поставки.</h4>
+		<hr>
 		<form class="form">
 			<input type="hidden" name="project_name" value="Термоника">
 			<input type="hidden" name="admin_email" value="eguzman@yandex.ru">
@@ -84,7 +84,6 @@
 				<input type="text" name="email" required autocomplete="off"/>
 				<label data-content="Ваш e-mail">Ваш e-mail</label>
 			</div>
-			<textarea name="question" rows="5" cols="45" wrap="soft" placeholder="Расскажите, что Вам нужно" required="true"></textarea>
 			<button> 
 				<p>Отправить заявку</p>
 			</button>
@@ -96,7 +95,8 @@
 
 <div id="ask-question" class="modal bottom-sheet">
 	<div class="modal-content">
-		<p class="empty_search">Задайте любой вопрос касаемо данного товара, будь то вопрос технического характера или запрос наличия или сроков поставки.</p>
+		<h4>Задайте любой вопрос касаемо данного товара, будь то вопрос технического характера или запрос наличия или сроков поставки.</h4>
+		<hr>
 		<form class="form">
 			<input type="hidden" name="project_name" value="Термоника">
 			<input type="hidden" name="admin_email" value="eguzman@yandex.ru">
@@ -109,7 +109,7 @@
 				<input type="text" name="email" required autocomplete="off"/>
 				<label data-content="Ваш e-mail">Ваш e-mail</label>
 			</div>
-			<textarea name="question" rows="5" cols="45" wrap="soft" placeholder="Расскажите, что Вам нужно" required="true"></textarea>
+			<textarea name="question" rows="5" cols="45" wrap="soft" placeholder="Ваш вопрос" required="true"></textarea>
 			<button> 
 				<p>Отправить заявку</p>
 			</button>

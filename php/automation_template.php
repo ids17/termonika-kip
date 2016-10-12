@@ -36,7 +36,7 @@
 </section>
 <section class="montazh">
 	<div id="montazh">
-		<div class="photo">
+		<div class="col-md-6 col-sm-12 photo">
 			
 		</div>
 		<div class="text">

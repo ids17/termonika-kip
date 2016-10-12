@@ -2,6 +2,7 @@
 /docs/*
 /fonts/*
 /libs/*
+/bower_components/*
 /error.log
 /access.log
 /php/config.php

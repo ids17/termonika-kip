@@ -3,7 +3,7 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title><?php echo $page_title; ?></title>
 	<meta name="description" content="">
 
 	<meta name="yandex-verification" content="dd14767fc3208e98" />
@@ -27,7 +27,8 @@
 	<link rel="stylesheet" href="css/media.css">
 	<link rel="stylesheet" href="libs/animate-plugin/animate.min.css">
 	<link rel="stylesheet" href="libs/fontawesome/css/font-awesome.min.css">
-
+	<link rel="stylesheet" href="css/flexslider.css">
+	
 	<script src="libs/jquery/jquery.js"> </script>
 
 	<!--<link href="http://allfont.ru/allfont.css?fonts=agavantgardecyr-book" rel="stylesheet" type="text/css">-->
@@ -114,7 +115,7 @@
 		</div>
 
 	</div>
-	<div id="footer"><h1></h1></div>
+	<!-- <div id="footer"><h1></h1></div> -->
 </div>
 
 <div class="hidden">
@@ -151,6 +152,9 @@ $(function() {
 	<script src="libs/xfade/jquery.xfade-1.0.min.js"></script>
 	<script src="libs/Center-Loader/center-loader.min.js"></script>
 	<!--<script src="libs/parallax.js-master/parallax.min.js"></script>-->
+	<!-- <script src="js/imagezoom.js"></script> -->
+	<script src="js/jquery.flexslider.js"></script>
+	<script src="js/jquery.jrumble.1.3.min.js"></script>
 	
 	<script src="js/setParam.js"></script>
 	<script src="js/setPlugins.js"></script>

@@ -348,15 +348,26 @@ function map_tree($dataset) {
 		array_pop($img_arr);
 		//print_arr($img_arr);
 
+		// $photos = '';
+		// $thumbs = '';	
+		// foreach ($img_arr as $key => $value) {
+		// 	$flag = $key+1;
+		// 	$photos .= '<li id="photo-'.$flag.'"><a href="#p'.$flag.'"><img width="100%" src="img/items/'.$value.'" alt="'.$value.'"/></a></li>';
+		// 	$thumbs .= '<li id="thumb-'.$flag.'"><a href="#t'.$flag.'"><img height="50px" src="img/items/'.$value.'" alt="'.$value.'"/></a></li>';
+		// }
+		// $photos = '<ul id="photos">'.$photos.'</ul>';
+		// $thumbs = '<ul id="thumbs">'.$thumbs.'</ul>';
+
+
 		$photos = '';
-		$thumbs = '';	
-		foreach ($img_arr as $key => $value) {
-			$flag = $key+1;
-			$photos .= '<li id="photo-'.$flag.'"><a href="#p'.$flag.'"><img width="100%" src="img/items/'.$value.'" alt="'.$value.'"/></a></li>';
-			$thumbs .= '<li id="thumb-'.$flag.'"><a href="#t'.$flag.'"><img height="50px" src="img/items/'.$value.'" alt="'.$value.'"/></a></li>';
-		}
-		$photos = '<ul id="photos">'.$photos.'</ul>';
-		$thumbs = '<ul id="thumbs">'.$thumbs.'</ul>';
+    foreach ($img_arr as $key => $value) {
+      $photos .= '<li data-thumb="img/items/'.$value.'"><div class="thumb-image"><img src="img/items/'.$value.'" data-imagezoom="true" class="img-responsive" alt="'.$value.'"/></div></li>';
+    }
+    $photos = '<div class="zoom-grid"><div class="flexslider"><ul class="slides">'.$photos.'</ul></div></div>';
+
+
+
+
 
 		//print_arr($docs_text);
 		foreach ($docs_text as $key => $value) {
@@ -364,7 +375,7 @@ function map_tree($dataset) {
 		}
 		$full_item_info['$item'] = $item;
 		$full_item_info['$photos'] = $photos;
-		$full_item_info['$thumbs'] = $thumbs;
+		//$full_item_info['$thumbs'] = $thumbs;
 		$full_item_info['$docs'] = $docs;
 		$full_item_info['$iid'] = $iid;
 		//print_arr($full_item_info);
